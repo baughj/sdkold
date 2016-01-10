@@ -375,7 +375,7 @@
   </xs:complexType>
 
   <!-- Castable type -->
-  <xs:complexType name="CastableType">
+  <xs:complexType name="Castable">
     <xs:choice minOccurs="0" maxOccurs="8">
       <xs:element name="name" type="hyb:String8" minOccurs="1" maxOccurs="1"/>
       <xs:element name="categories" type="actions:Categories" minOccurs="0" maxOccurs="1"/>
@@ -406,6 +406,6 @@
   </xs:complexType>
 
   <!-- Bring it all together -->
-  <xs:element name="castable" type="actions:CastableType"/>
+  <xs:element name="castable" type="actions:Castable"/>
 
 </xs:schema>
