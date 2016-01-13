@@ -49,7 +49,7 @@
     <Compile Include="XML\Serializer.cs" />
     <Compile Include="XML\Utf8StringWriter.cs" />
     <Compile Include="XML\XMLBase.cs" />
-    <Compile Include="XSD\Actions.cs" />
+    <Compile Include="XSD\Castables.cs" />
     <Compile Include="XSD\Creatures.cs" />
     <Compile Include="XSD\Items.cs" />
     <Compile Include="XSD\Maps.cs" />
@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="XSD\Actions.xsd">
+    <None Include="XSD\Castables.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="XSD\Creatures.xsd">

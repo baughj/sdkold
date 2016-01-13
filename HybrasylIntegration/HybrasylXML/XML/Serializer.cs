@@ -12,6 +12,13 @@ namespace Hybrasyl.XML
 {
     public class Serializer : XMLBase
     {
+        public static void Serialize(XmlWriter xWrite, Castable contents)
+        {
+            XmlSerializer Writer = new XmlSerializer(contents.GetType());
+            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+            ns.Add("", "");
+            Writer.Serialize(xWrite, contents, ns);
+        }
         public static void Serialize(XmlWriter xWrite, Mob contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -69,6 +76,17 @@ namespace Hybrasyl.XML
             Utf8StringWriter stringWriter = new Utf8StringWriter();
             Writer.Serialize(stringWriter, contents, ns);
             return stringWriter.ToString();
+        }
+        public static Castable Deserialize(XmlReader reader, Castable contents)
+        {
+            reader.Settings.IgnoreWhitespace = false;
+            XmlSerializer XmlSerial = new XmlSerializer(contents.GetType());
+            if (XmlSerial.CanDeserialize(reader))
+            {
+                var xContents = XmlSerial.Deserialize(reader);
+                contents = (Castable)xContents;
+            }
+            return contents;
         }
         public static Mob Deserialize(XmlReader reader, Mob contents)
         {
