@@ -25,7 +25,6 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute(Namespace="http://www.hybrasyl.com/XML/Nations", IsNullable=false, ElementName="nation")]
     public partial class Nation
     {
-        
         private List<SpawnPoint> _spawnpoints;
         
         [XmlElementAttribute("name")]
@@ -62,6 +61,11 @@ namespace Hybrasyl.XSD
             {
                 _spawnpoints = value;
             }
+        }
+
+        public Nation()
+        {
+            _spawnpoints = new List<SpawnPoint>();
         }
     }
     

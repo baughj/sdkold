@@ -76,6 +76,8 @@
               <xs:enumeration value="perishable"/>
               <xs:enumeration value="unique"/>
               <xs:enumeration value="master"/>
+              <xs:enumeration value="unique-equipped"/>
+              <xs:enumeration value="master"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:list>
