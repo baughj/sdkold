@@ -16,56 +16,56 @@ namespace Hybrasyl.XML
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Actions");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static void Serialize(XmlWriter xWrite, Mob contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Creatures");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static void Serialize(XmlWriter xWrite, Dropset contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Items");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static void Serialize(XmlWriter xWrite, ItemType contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Items");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static void Serialize(XmlWriter xWrite, VariantGroupType contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Items");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static void Serialize(XmlWriter xWrite, Map contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Maps");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static void Serialize(XmlWriter xWrite, WorldMap contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Maps");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static void Serialize(XmlWriter xWrite, Nation contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
+            ns.Add("", "http://www.hybrasyl.com/XML/Nations");
             Writer.Serialize(xWrite, contents, ns);
         }
         public static string SerializeToString(object contents)

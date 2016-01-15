@@ -80,8 +80,8 @@ namespace Hybrasyl.XSD
         {
             Music = ((byte)(0));
         }
-        
-        [XmlArrayItemAttribute("warp", IsNullable=false, ElementName="warps")]
+        [XmlArray("warps")]
+        [XmlArrayItemAttribute("warp", IsNullable=false, ElementName="warp")]
         public List<Warp> Warps
         {
             get
@@ -205,8 +205,9 @@ namespace Hybrasyl.XSD
         [XmlElementAttribute("description")]
         public string Description { get; set; }
         [XmlElementAttribute("maptarget", typeof(WarpMaptarget))]
-        [XmlElementAttribute("worldmaptarget", typeof(string))]
-        public object Item { get; set; }
+        public WarpMaptarget MapTarget { get; set; }
+        [XmlElementAttribute("worldmaptarget", typeof(WorldMapPointTarget))]
+        public object WorldMapTarget { get; set; }
         [XmlAttributeAttribute(AttributeName="x")]
         public byte X { get; set; }
         [XmlAttributeAttribute(AttributeName="y")]

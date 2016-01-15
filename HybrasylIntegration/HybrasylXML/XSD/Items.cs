@@ -933,9 +933,13 @@ namespace Hybrasyl.XSD
         
         /// <remarks/>
         unique = 512,
-        
+
+        [XmlEnumAttribute("unique-equipped")]
+        uniqueequipped = 1024,
+
         /// <remarks/>
-        master = 1024,
+        master = 2048,
+
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
