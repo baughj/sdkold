@@ -114,8 +114,8 @@ namespace Hybrasyl.XSD
                 _reactors = value;
             }
         }
-        
-        [XmlArrayItemAttribute("npc", IsNullable=false, ElementName="npcs")]
+        [XmlArray("npcs")]
+        [XmlArrayItemAttribute("npc", IsNullable=false, ElementName="npc")]
         public List<Npc> Npcs
         {
             get
