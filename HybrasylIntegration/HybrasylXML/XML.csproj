@@ -51,7 +51,7 @@
     <Compile Include="XML\XMLBase.cs" />
     <Compile Include="XSD\Castables.cs" />
     <Compile Include="XSD\Creatures.cs" />
-    <Compile Include="XSD\Extentions.cs" />
+    <Compile Include="XSD\Extensions.cs" />
     <Compile Include="XSD\Items.cs" />
     <Compile Include="XSD\Maps.cs" />
     <Compile Include="XSD\Nations.cs" />

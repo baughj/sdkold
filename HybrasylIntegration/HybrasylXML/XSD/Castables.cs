@@ -31,19 +31,23 @@ namespace Hybrasyl.XSD
         private List<Class> _class;
         
         [XmlElementAttribute("castcost", typeof(CastCost))]
+        public CastCost CastCost { get; set; }
         [XmlElementAttribute("categories", typeof(Categories))]
+        public Categories Categories { get; set; }
         [XmlElementAttribute("description", typeof(string))]
+        public string Description { get; set; }
         [XmlElementAttribute("effects", typeof(Effects))]
+        public Effects Effects { get; set; }
         [XmlElementAttribute("intents", typeof(Intents))]
+        public Intents Intents { get; set; }
         [XmlElementAttribute("maxlevel", typeof(MaxLevel))]
+        public MaxLevel MaxLevel { get; set; }
         [XmlElementAttribute("name", typeof(string))]
+        public string Name { get; set; }
         [XmlElementAttribute("requirements", typeof(Requirements))]
+        public Requirements Requirements { get; set; }
         [XmlElementAttribute("restrictions", typeof(Restrictions))]
-        [XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public object[] Items { get; set; }
-        [XmlElementAttribute("ItemsElementName")]
-        [XmlIgnore]
-        public ItemsChoiceType3[] ItemsElementName { get; set; }
+        public Restrictions Restrictions { get; set; }
         [XmlAttributeAttribute(AttributeName="type")]
         public string Type { get; set; }
         [XmlAttributeAttribute(AttributeName="icon")]
@@ -59,10 +63,6 @@ namespace Hybrasyl.XSD
         [XmlAttributeAttribute(AttributeName="isassail")]
         [DefaultValueAttribute("false")]
         public string Isassail { get; set; }
-        [XmlIgnore()]
-        public bool ItemsSpecified { get; set; }
-        [XmlIgnore()]
-        public bool ItemsElementNameSpecified { get; set; }
         [XmlIgnore()]
         public bool TypeSpecified { get; set; }
         [XmlIgnore()]
@@ -129,31 +129,13 @@ namespace Hybrasyl.XSD
     [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions")]
     [XmlRootAttribute("CastCost")]
     public partial class CastCost
-    {
-        
-        private List<object> _items;
-        
-        [XmlIgnore()]
-        public bool ItemsSpecified { get; set; }
-        
+    {   
         [XmlElementAttribute("gold", typeof(uint))]
+        public uint Gold { get; set; }
         [XmlElementAttribute("items", typeof(ItemsSpecification))]
+        public ItemsSpecification Items { get; set; }
         [XmlElementAttribute("stat", typeof(CastCostStat))]
-        public List<object> Items
-        {
-            get
-            {
-                if ((_items == null))
-                {
-                    _items = new List<object>();
-                }
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public CastCostStat Stat { get; set; }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -220,30 +202,14 @@ namespace Hybrasyl.XSD
     [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions")]
     [XmlRootAttribute("Restrictions")]
     public partial class Restrictions
-    {
-        
-        private List<object> _items;
-        
+    {        
         [XmlIgnore()]
         public bool ItemsSpecified { get; set; }
         
         [XmlElementAttribute("equiptype", typeof(EquipmentSlot))]
+        public EquipmentSlot EquipType { get; set; }
         [XmlElementAttribute("weapontype", typeof(WeaponType))]
-        public List<object> Items
-        {
-            get
-            {
-                if ((_items == null))
-                {
-                    _items = new List<object>();
-                }
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public WeaponType WeaponType { get; set; }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -255,28 +221,15 @@ namespace Hybrasyl.XSD
     public partial class Statuses
     {
         
-        private List<object> _items;
+        
         
         [XmlIgnore()]
         public bool ItemsSpecified { get; set; }
         
         [XmlElementAttribute("add", typeof(AddStatus))]
+        public AddStatus Add { get; set; }
         [XmlElementAttribute("remove", typeof(string))]
-        public List<object> Items
-        {
-            get
-            {
-                if ((_items == null))
-                {
-                    _items = new List<object>();
-                }
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public string Remove { get; set; }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -526,8 +479,6 @@ namespace Hybrasyl.XSD
     public partial class Effects
     {
         
-        private List<object> _items;
-        
         [XmlAttributeAttribute(AttributeName="duration")]
         public uint Duration { get; set; }
         [XmlIgnore]
@@ -536,27 +487,20 @@ namespace Hybrasyl.XSD
         public bool ItemsSpecified { get; set; }
         
         [XmlElementAttribute("animations", typeof(Animations))]
+        public Animations Animations { get; set; }
         [XmlElementAttribute("damage", typeof(Damage))]
+        public Damage Damage { get; set; }
         [XmlElementAttribute("heal", typeof(Heal))]
+        public Heal Heal { get; set; }
         [XmlElementAttribute("scriptname", typeof(string))]
+        public string ScriptName { get; set; }
         [XmlElementAttribute("sound", typeof(EffectsSound))]
+        public EffectsSound Sound { get; set; }
         [XmlElementAttribute("stateffects", typeof(StatEffects))]
+        public StatEffects StatEffects { get; set; }
         [XmlElementAttribute("statuses", typeof(Statuses))]
-        public List<object> Items
-        {
-            get
-            {
-                if ((_items == null))
-                {
-                    _items = new List<object>();
-                }
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public Statuses Statuses { get; set; }
+        
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -569,17 +513,14 @@ namespace Hybrasyl.XSD
     {
         
         [XmlElementAttribute("duration", typeof(AnimationDurationGroup))]
+        public AnimationDurationGroup Duration { get; set; }
         [XmlElementAttribute("end", typeof(AnimationGroup))]
+        public AnimationGroup End { get; set; }
         [XmlElementAttribute("oncast", typeof(AnimationGroup))]
-        [XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public object[] Items { get; set; }
-        [XmlElementAttribute("ItemsElementName")]
-        [XmlIgnore]
-        public ItemsChoiceType2[] ItemsElementName { get; set; }
+        public AnimationGroup OnCast { get; set; }
+
         [XmlIgnore()]
         public bool ItemsSpecified { get; set; }
-        [XmlIgnore()]
-        public bool ItemsElementNameSpecified { get; set; }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -592,17 +533,15 @@ namespace Hybrasyl.XSD
     {
         
         [XmlElementAttribute("player", typeof(AnimationDuration))]
+        public AnimationDuration Player { get; set; }
         [XmlElementAttribute("spelleffect", typeof(AnimationDuration))]
+        public AnimationDuration SpellEffect { get; set; }
         [XmlElementAttribute("target", typeof(AnimationDuration))]
-        [XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public AnimationDuration[] Items { get; set; }
-        [XmlElementAttribute("ItemsElementName")]
-        [XmlIgnore]
-        public ItemsChoiceType1[] ItemsElementName { get; set; }
+        public AnimationDuration Target { get; set; }
+
         [XmlIgnore()]
         public bool ItemsSpecified { get; set; }
-        [XmlIgnore()]
-        public bool ItemsElementNameSpecified { get; set; }
+        
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -634,22 +573,6 @@ namespace Hybrasyl.XSD
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
-    [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions", IncludeInSchema=false)]
-    [XmlRootAttribute("ItemsChoiceType1")]
-    public enum ItemsChoiceType1
-    {
-        
-        /// <remarks/>
-        player,
-        
-        /// <remarks/>
-        spelleffect,
-        
-        /// <remarks/>
-        target,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
@@ -661,17 +584,13 @@ namespace Hybrasyl.XSD
     {
         
         [XmlElementAttribute("motion", typeof(Animation))]
+        public Animation Motion { get; set; }
         [XmlElementAttribute("spelleffect", typeof(Animation))]
+        public Animation SpellEffect { get; set; }
         [XmlElementAttribute("target", typeof(Animation))]
-        [XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public Animation[] Items { get; set; }
-        [XmlElementAttribute("ItemsElementName")]
-        [XmlIgnore]
-        public ItemsChoiceType[] ItemsElementName { get; set; }
+        public Animation Target { get; set; }
         [XmlIgnore()]
         public bool ItemsSpecified { get; set; }
-        [XmlIgnore()]
-        public bool ItemsElementNameSpecified { get; set; }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -699,39 +618,7 @@ namespace Hybrasyl.XSD
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
-    [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions", IncludeInSchema=false)]
-    [XmlRootAttribute("ItemsChoiceType")]
-    public enum ItemsChoiceType
-    {
-        
-        /// <remarks/>
-        motion,
-        
-        /// <remarks/>
-        spelleffect,
-        
-        /// <remarks/>
-        target,
-    }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
-    [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions", IncludeInSchema=false)]
-    [XmlRootAttribute("ItemsChoiceType2")]
-    public enum ItemsChoiceType2
-    {
-        
-        /// <remarks/>
-        duration,
-        
-        /// <remarks/>
-        end,
-        
-        /// <remarks/>
-        oncast,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
@@ -740,10 +627,7 @@ namespace Hybrasyl.XSD
     [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions")]
     [XmlRootAttribute("Damage")]
     public partial class Damage
-    {
-        
-        private List<object> _items;
-        
+    {        
         [XmlAttributeAttribute(AttributeName="overtime")]
         public bool Overtime { get; set; }
         [XmlIgnore]
@@ -753,26 +637,13 @@ namespace Hybrasyl.XSD
         [XmlIgnore]
         public bool TypeSpecified { get; set; }
         [XmlIgnore()]
-        public bool ItemsSpecified { get; set; }
-        
+        public bool ItemsSpecified { get; set; }        
         [XmlElementAttribute("flags", typeof(DamageFlags))]
+        public DamageFlags Flags { get; set; }
         [XmlElementAttribute("formula", typeof(string))]
+        public string Formula { get; set; }
         [XmlElementAttribute("simple", typeof(SimpleQuantity))]
-        public List<object> Items
-        {
-            get
-            {
-                if ((_items == null))
-                {
-                    _items = new List<object>();
-                }
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public SimpleQuantity Simple { get; set; }   
     }
     
     [System.FlagsAttribute()]
@@ -830,8 +701,9 @@ namespace Hybrasyl.XSD
     {
         
         [XmlElementAttribute("formula", typeof(string))]
+        public string Formula { get; set; }
         [XmlElementAttribute("simple", typeof(SimpleQuantity))]
-        public object Item { get; set; }
+        public SimpleQuantity Simple { get; set; }
         [XmlAttributeAttribute(AttributeName="overtime")]
         public bool Overtime { get; set; }
         [XmlIgnore]
@@ -865,8 +737,9 @@ namespace Hybrasyl.XSD
     {
         
         [XmlElementAttribute("formula", typeof(string))]
+        public string Formula { get; set; }
         [XmlElementAttribute("simple", typeof(SimpleQuantity))]
-        public object Item { get; set; }
+        public SimpleQuantity Simple { get; set; }
         [XmlIgnore()]
         public bool ItemSpecified { get; set; }
     }
@@ -878,34 +751,22 @@ namespace Hybrasyl.XSD
     [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions")]
     [XmlRootAttribute("Requirements")]
     public partial class Requirements
-    {
-        
-        private List<object> _items;
-        
+    {        
         [XmlIgnore()]
         public bool ItemsSpecified { get; set; }
         
         [XmlElementAttribute("ab", typeof(RequirementsAB))]
+        public RequirementsAB AB { get; set; }
         [XmlElementAttribute("gold", typeof(uint))]
+        public uint Gold { get; set; }
         [XmlElementAttribute("items", typeof(ItemsSpecification))]
+        public ItemsSpecification Items { get; set; }
         [XmlElementAttribute("level", typeof(RequirementsLevel))]
+        public RequirementsLevel Level { get; set; }
         [XmlElementAttribute("physical", typeof(RequirementsPhysical))]
+        public RequirementsPhysical Physical { get; set; }
         [XmlElementAttribute("prerequisites", typeof(LearnPrerequisites))]
-        public List<object> Items
-        {
-            get
-            {
-                if ((_items == null))
-                {
-                    _items = new List<object>();
-                }
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public LearnPrerequisites Prerequisites { get; set; }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -1299,40 +1160,7 @@ namespace Hybrasyl.XSD
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
-    [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Actions", IncludeInSchema=false)]
-    [XmlRootAttribute("ItemsChoiceType3")]
-    public enum ItemsChoiceType3
-    {
-        
-        /// <remarks/>
-        castcost,
-        
-        /// <remarks/>
-        categories,
-        
-        /// <remarks/>
-        description,
-        
-        /// <remarks/>
-        effects,
-        
-        /// <remarks/>
-        intents,
-        
-        /// <remarks/>
-        maxlevel,
-        
-        /// <remarks/>
-        name,
-        
-        /// <remarks/>
-        requirements,
-        
-        /// <remarks/>
-        restrictions,
-    }
+    
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
