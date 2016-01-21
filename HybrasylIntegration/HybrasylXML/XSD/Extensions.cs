@@ -56,5 +56,23 @@ namespace Hybrasyl.XSD
             }
         }
     }
+
+    public partial class Castable
+    {
+        public int Id
+        {
+            get
+            {
+                unchecked
+                {
+                    if(Class != null)
+                    {
+                        return 31 * Name.GetHashCode() * (Class.GetHashCode() + 1);
+                    }
+                    return 31 * (Name.GetHashCode() + 1);
+                }
+            }
+        }
+    }
 }
 
