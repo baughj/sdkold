@@ -73,6 +73,8 @@ namespace Hybrasyl.XSD
                 }
             }
         }
+
+        public byte CastableLevel { get; set; }
     }
 }
 
