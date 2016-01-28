@@ -65,10 +65,10 @@ namespace Hybrasyl.XSD
             {
                 unchecked
                 {
-                    if(Class != null)
-                    {
-                        return 31 * Name.GetHashCode() * (Class.GetHashCode() + 1);
-                    }
+                    //if(Class != null)
+                    //{
+                    //    return 31 * Name.GetHashCode() * (C.GetHashCode() + 1);
+                    //}
                     return 31 * (Name.GetHashCode() + 1);
                 }
             }
