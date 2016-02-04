@@ -34,6 +34,19 @@
     </xs:sequence>
   </xs:complexType>
 
+  <!-- Item colors -->
+  <xs:simpleType name="LogLevel">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="debug"/>
+      <xs:enumeration value="info"/>
+      <xs:enumeration value="warn"/>
+      <xs:enumeration value="error"/>
+      <xs:enumeration value="fatal"/>
+      <xs:enumeration value="off"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="Access">
     <xs:sequence>
       <xs:element name="privileged" minOccurs="0" maxOccurs="1">
@@ -65,9 +78,16 @@
       <xs:element name="moderate" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="LogConfig">
+    <xs:attribute name="type" type="xs:string" default="file"/>
+    <xs:attribute name="target" type="xs:string" default="hybrasyl.log"/>
+    <xs:attribute name="level" type="config:LogLevel" default="info"/>
+  </xs:complexType>
   
   <xs:complexType name="HybrasylConfig">
     <xs:sequence>
+      <xs:element name="logging" type="config:LogConfig" minOccurs="0" maxOccurs="1"/>
       <xs:element name="datastore" type="config:DataStore" minOccurs="0" maxOccurs="1"/>
       <xs:element name="network" type="config:Network" minOccurs="0" maxOccurs="1"/>
       <xs:element name="access" type="config:Access" minOccurs="0" maxOccurs="1"/>
