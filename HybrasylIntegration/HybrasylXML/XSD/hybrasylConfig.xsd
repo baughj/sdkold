@@ -44,21 +44,21 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Boards">
+  <xs:complexType name="GlobalBoards">
     <xs:sequence>
-      <xs:element name="board" type="config:Board" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="board" type="config:GlobalBoard" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Board">
+  <xs:complexType name="GlobalBoard">
     <xs:sequence>
-      <xs:element name="accesslist" type="config:BoardAccessList" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="accesslist" type="config:GlobalBoardAccessList" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
     <xs:attribute name="name" type="xs:token" use="required"/>
     <xs:attribute name="displayname" type="hyb:String8" use="required"/>
   </xs:complexType>
 
-  <xs:complexType name="BoardAccessList">
+  <xs:complexType name="GlobalBoardAccessList">
     <xs:sequence>
       <xs:element name="read" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
       <xs:element name="write" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
@@ -71,7 +71,7 @@
       <xs:element name="datastore" type="config:DataStore" minOccurs="0" maxOccurs="1"/>
       <xs:element name="network" type="config:Network" minOccurs="0" maxOccurs="1"/>
       <xs:element name="access" type="config:Access" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="boards" type="config:Boards" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="boards" type="config:GlobalBoards" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
