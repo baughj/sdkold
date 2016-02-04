@@ -123,12 +123,12 @@
   <!-- Classes (for item restrictions) -->
   <xs:simpleType name="Class">
     <xs:restriction base="xs:token">
-      <xs:enumeration value="monk"/>
       <xs:enumeration value="peasant"/>
-      <xs:enumeration value="priest"/>
-      <xs:enumeration value="rogue"/>
       <xs:enumeration value="warrior"/>
+      <xs:enumeration value="rogue"/>
       <xs:enumeration value="wizard"/>
+      <xs:enumeration value="priest"/>
+      <xs:enumeration value="monk"/>
     </xs:restriction>
   </xs:simpleType>
 
