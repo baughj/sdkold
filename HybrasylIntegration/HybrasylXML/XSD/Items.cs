@@ -1430,26 +1430,26 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute("Class")]
     public enum Class
     {
-        
-        /// <remarks/>
-        monk,
-        
+
         /// <remarks/>
         peasant,
-        
-        /// <remarks/>
-        priest,
-        
-        /// <remarks/>
-        rogue,
-        
+
         /// <remarks/>
         warrior,
-        
+
+        /// <remarks/>
+        rogue,
+
         /// <remarks/>
         wizard,
+
+        /// <remarks/>
+        priest,
+
+        /// <remarks/>
+        monk,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
