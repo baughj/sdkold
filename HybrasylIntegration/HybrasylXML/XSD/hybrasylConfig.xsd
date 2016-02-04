@@ -7,7 +7,6 @@
       This file is subject to the same licenses as Project Hybrasyl.
       (C) 2015 Project Hybrasyl (info@hybrasyl.com)
       Written by Justin Baugh (baughj@hybrasyl.com)
-
     </xs:documentation>
   </xs:annotation>
   <xs:import schemaLocation="hybrasylTypes.xsd" namespace="http://www.hybrasyl.com/XML/HybrasylCommon"/>
@@ -18,7 +17,7 @@
       <xs:element name="password" type="xs:token" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
     <xs:attribute name="type" type="xs:token" default="redis"/>
-    <xs:attribute name="host" type="xs:token" default=""/>
+    <xs:attribute name="host" type="xs:token" default="localhost"/>
     <xs:attribute name="port" type="xs:unsignedShort" default="6379"/>
   </xs:complexType>
 
@@ -45,11 +44,34 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="GlobalBoards">
+    <xs:sequence>
+      <xs:element name="board" type="config:GlobalBoard" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GlobalBoard">
+    <xs:sequence>
+      <xs:element name="accesslist" type="config:GlobalBoardAccessList" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:token" use="required"/>
+    <xs:attribute name="displayname" type="hyb:String8" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="GlobalBoardAccessList">
+    <xs:sequence>
+      <xs:element name="read" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="write" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="moderate" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="HybrasylConfig">
     <xs:sequence>
       <xs:element name="datastore" type="config:DataStore" minOccurs="0" maxOccurs="1"/>
       <xs:element name="network" type="config:Network" minOccurs="0" maxOccurs="1"/>
       <xs:element name="access" type="config:Access" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="boards" type="config:GlobalBoards" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 

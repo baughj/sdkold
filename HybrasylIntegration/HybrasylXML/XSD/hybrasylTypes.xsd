@@ -286,4 +286,17 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="CharacterName">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="4"/>
+      <xs:maxLength value="12"/>
+      <xs:pattern value="[a-zA-Z]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- A list of character names -->
+  <xs:simpleType name="CharacterNameList">
+    <xs:list itemType="hyb:CharacterName"/>
+  </xs:simpleType>
+
 </xs:schema>
