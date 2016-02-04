@@ -68,6 +68,13 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Nations");
             Writer.Serialize(xWrite, contents, ns);
         }
+        public static void Serialize(XmlWriter xWrite, HybrasylConfig contents)
+        {
+            XmlSerializer Writer = new XmlSerializer(contents.GetType());
+            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+            ns.Add("", "http://www.hybrasyl.com/XML/Config");
+            Writer.Serialize(xWrite, contents, ns);
+        }
         public static string SerializeToString(object contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -173,5 +180,19 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
+        public static HybrasylConfig Deserialize(XmlReader reader, HybrasylConfig contents = null)
+        {
+            //reader.Settings.IgnoreWhitespace = false;
+            if (contents == null) contents = new HybrasylConfig();
+            XmlSerializer XmlSerial = new XmlSerializer(contents.GetType());
+            if (XmlSerial.CanDeserialize(reader))
+            {
+                var xContents = XmlSerial.Deserialize(reader);
+                contents = (HybrasylConfig)xContents;
+            }
+            return contents;
+        }
+
     }
 }

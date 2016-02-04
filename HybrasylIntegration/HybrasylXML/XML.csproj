@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,7 @@
     <Compile Include="XSD\Castables.cs" />
     <Compile Include="XSD\Creatures.cs" />
     <Compile Include="XSD\Extensions.cs" />
+    <Compile Include="XSD\hybrasylConfig.cs" />
     <Compile Include="XSD\Items.cs" />
     <Compile Include="XSD\Maps.cs" />
     <Compile Include="XSD\Nations.cs" />
@@ -62,6 +64,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="XSD\Creatures.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\hybrasylConfig.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="XSD\hybrasylTypes.xsd">

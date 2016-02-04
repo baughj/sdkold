@@ -48,12 +48,12 @@ namespace Hybrasyl.XSD
         public void ResolveVariant(ItemType itemType)
         {
             //Logger.DebugFormat("Logging some variant stuff.");
-            if (Properties != null)
-                Console.WriteLine("hi");
-            foreach (var variantObject in Properties.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
-            {
-                Console.WriteLine("variantobject contains {0}", variantObject);
-            }
+           // if (Properties != null)
+            //    Console.WriteLine("hi");
+            //foreach (var variantObject in Properties.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
+            //{
+            //    Console.WriteLine("variantobject contains {0}", variantObject);
+           // }
         }
     }
 
