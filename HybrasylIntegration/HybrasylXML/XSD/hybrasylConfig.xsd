@@ -72,11 +72,11 @@
   </xs:complexType>
 
   <xs:complexType name="GlobalBoardAccessList">
-    <xs:sequence>
-      <xs:element name="read" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="write" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="moderate" type="hyb:CharacterNameList" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="read" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="write" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="moderate" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
   </xs:complexType>
 
   <xs:complexType name="LogConfig">

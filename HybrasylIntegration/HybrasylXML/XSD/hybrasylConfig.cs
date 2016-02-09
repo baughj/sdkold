@@ -35,7 +35,8 @@ namespace Hybrasyl.XSD
         public Network Network { get; set; }
         [System.Xml.Serialization.XmlElementAttribute("access")]
         public Access Access { get; set; }
-        [System.Xml.Serialization.XmlArrayItemAttribute("board", IsNullable = false, ElementName = "boards")]
+        [System.Xml.Serialization.XmlArray("boards")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("board", IsNullable = false, ElementName = "board")]
         public List<GlobalBoard> Boards { get; set; }
 
         public HybrasylConfig()
@@ -83,25 +84,25 @@ namespace Hybrasyl.XSD
     {
 
         /// <remarks/>
-        all,
+        all = 0,
 
         /// <remarks/>
-        debug,
+        debug = 30000,
 
         /// <remarks/>
-        info,
+        info = 40000,
 
         /// <remarks/>
-        warn,
+        warn = 60000,
 
         /// <remarks/>
-        error,
+        error = 70000,
 
         /// <remarks/>
-        fatal,
+        fatal = 110000,
 
         /// <remarks/>
-        off,
+        off = Int32.MaxValue, 
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -114,11 +115,18 @@ namespace Hybrasyl.XSD
     {
 
         [System.Xml.Serialization.XmlElementAttribute("read")]
-        public string Read { get; set; }
+        public List<string> Read { get; set; }
         [System.Xml.Serialization.XmlElementAttribute("write")]
-        public string Write { get; set; }
+        public List<string> Write { get; set; }
         [System.Xml.Serialization.XmlElementAttribute("moderate")]
-        public string Moderate { get; set; }
+        public List<string> Moderate { get; set; }
+
+        public GlobalBoardAccessList()
+        {
+            Read = new List<string>();
+            Write = new List<string>();
+            Moderate = new List<string>();
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]

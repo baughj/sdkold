@@ -298,5 +298,6 @@
   <xs:simpleType name="CharacterNameList">
     <xs:list itemType="hyb:CharacterName"/>
   </xs:simpleType>
+  
 
 </xs:schema>
