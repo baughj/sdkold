@@ -39,6 +39,7 @@
       <xs:enumeration value="teal"/>
       <xs:enumeration value="blue"/>
       <xs:enumeration value="purple"/>
+      <xs:enumeration value="darkgreen"/>
       <xs:enumeration value="green"/>
       <xs:enumeration value="lightorange"/>
       <xs:enumeration value="brown"/>

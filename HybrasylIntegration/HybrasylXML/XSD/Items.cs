@@ -348,12 +348,11 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute("ItemBodystyle")]
     public enum ItemBodystyle
     {
-        
-        /// <remarks/>
-        transparent,
-        
+
         /// <remarks/>
         male,
+        /// <remarks/>
+        transparent,
         
         /// <remarks/>
         maleblack,
@@ -397,6 +396,9 @@ namespace Hybrasyl.XSD
         purple,
         
         /// <remarks/>
+        darkgreen,
+        
+        /// <remarks/>
         green,
         
         /// <remarks/>
@@ -412,10 +414,8 @@ namespace Hybrasyl.XSD
         darkblue,
         
         /// <remarks/>
-        tan,
-        
-        /// <remarks/>
-        white,
+        flesh,
+        white
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
