@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Drawing;
-//using System.Drawing.Imaging;
+﻿//using System.Drawing.Imaging;
 using Hybrasyl.Imaging.Objects;
-using System.Runtime.InteropServices;
 using Hybrasyl.IO;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace Hybrasyl.Imaging
 {
@@ -19,6 +18,7 @@ namespace Hybrasyl.Imaging
         ZP,
         Tile
     }
+
     public class Rendering
     {
         public static int vscroll = 0;
@@ -61,18 +61,22 @@ namespace Hybrasyl.Imaging
         {
             return SimpleRender(hpf.Width, hpf.Height, hpf.RawData, palette, ImageType.HPF);
         }
+
         public Bitmap RenderImage(EPFFrame epf, ColorPalette palette)
         {
             return SimpleRender(epf.Width, epf.Height, epf.RawData, palette, ImageType.EPF);
         }
+
         public Bitmap RenderImage(MPFFrame mpf, ColorPalette palette)
         {
             return SimpleRender(mpf.Width, mpf.Height, mpf.RawData, palette, ImageType.MPF);
         }
+
         public Bitmap RenderTile(byte[] tileData, ColorPalette palette)
         {
             return SimpleRender(Tileset.TileWidth, Tileset.TileHeight, tileData, palette, ImageType.Tile);
         }
+
         private Bitmap SimpleRender(int width, int height, byte[] data, ColorPalette palette, ImageType type)
         {
             Bitmap image = new Bitmap(width, height);
@@ -81,7 +85,6 @@ namespace Hybrasyl.Imaging
 
             for (int y = 0; y < bmd.Height; y++)
             {
-
                 byte[] row = new byte[Marshal.SizeOf(bmd.Scan0 + (y * bmd.Stride))];
                 Marshal.Copy((bmd.Scan0 + (y * bmd.Stride)), row, 0, Marshal.SizeOf(bmd.Scan0 + (y * bmd.Stride)));
 
@@ -137,13 +140,9 @@ namespace Hybrasyl.Imaging
 
             return image;
         }
+
         public Bitmap RenderMap(Map map, Tileset tiles, PaletteTable tileTable, PaletteTable wallTable, Archive wallSource)
         {
-            long debug_initStart = DateTime.Now.Ticks;
-            int additionalTop = 0;//256, 
-            int additionalBottom = 0;// 96; 
-
-
             int sxs = selectionXStart;
             int sys = selectionYStart;
             int sxe = selectionXEnd;
@@ -234,7 +233,6 @@ namespace Hybrasyl.Imaging
                                                     if (c.R != 0 || c.G != 0 || c.B != 0)
                                                         thisTile.SetPixel(xx, yy, Color.FromArgb(colorR, colorG, colorB));
                                                 }
-
                                             }
                                             cachedFloorLight.Add(floor, thisTile);
                                         }
@@ -293,7 +291,6 @@ namespace Hybrasyl.Imaging
 
                             if (leftWall >= 13)
                             {
-
                                 if (!cachedWalls.ContainsKey(leftWall))
                                 {
                                     HPF hpf = HPF.FromArchive("stc" + leftWall.ToString().PadLeft(5, '0') + ".hpf", true, wallSource);
@@ -323,7 +320,6 @@ namespace Hybrasyl.Imaging
                                                     if (colorB > 255) colorB = 255;
                                                     if (c.R != 0 || c.G != 0 || c.B != 0) thisTile.SetPixel(xx, yy, Color.FromArgb(colorR, colorG, colorB));
                                                 }
-
                                             }
                                             cachedWallsLight.Add(leftWall, thisTile);
                                         }
@@ -343,7 +339,6 @@ namespace Hybrasyl.Imaging
 
                                     if (transparency && leftWall > 0 && leftWall - 1 < sotp.Length && (sotp[leftWall - 1] & 0x80) == 0x80)
                                     {
-                                        // gotta be a better way to do this - temporary
                                         for (int yy = 0; yy < thisTile.Height; yy++)
                                         {
                                             for (int xx = 0; xx < thisTile.Width; xx++)
@@ -368,7 +363,6 @@ namespace Hybrasyl.Imaging
                                                 }
                                             }
                                         }
-
                                     }
                                     else
                                     {
@@ -477,7 +471,7 @@ namespace Hybrasyl.Imaging
                                     }
                                     else
                                     {
-                                        g.DrawImageUnscaled(thisTile,xright,yright);
+                                        g.DrawImageUnscaled(thisTile, xright, yright);
                                     }
                                 }
                             }
@@ -516,7 +510,6 @@ namespace Hybrasyl.Imaging
 
                     xOrigin -= Tileset.TileWidth / 2;
                     yOrigin += (Tileset.TileHeight + 1) / 2;
-
                 }
             }
             if (drawGridLines)
@@ -542,7 +535,7 @@ namespace Hybrasyl.Imaging
                 }
             }
             g.Dispose();
-            System.GC.Collect();
+            GC.Collect();
 
             return mapImage;
         }

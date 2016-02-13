@@ -1,10 +1,5 @@
 ﻿using Hybrasyl.Imaging.Objects;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hybrasyl.Imaging
 {
@@ -21,30 +16,36 @@ namespace Hybrasyl.Imaging
             get { return _tiles[y * _width + x]; }
             set { _tiles[y * _width + x] = value; }
         }
+
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
+
         public int ID
         {
             get { return _id; }
             set { _id = value; }
         }
+
         public MapTile[] Tiles
         {
             get { return _tiles; }
         }
+
         public int Height
         {
             get { return _height; }
             set { _height = value; }
         }
+
         public int Width
         {
             get { return _width; }
             set { _width = value; }
         }
+
         private static Map LoadMap(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);

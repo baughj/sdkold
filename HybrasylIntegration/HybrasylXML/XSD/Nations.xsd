@@ -7,11 +7,10 @@
       This file is subject to the same licenses as Project Hybrasyl.
       (C) 2015 Project Hybrasyl (info@hybrasyl.com)
       Written by Justin Baugh (baughj@hybrasyl.com)
-
     </xs:documentation>
   </xs:annotation>
 
-  <xs:import schemaLocation="hybrasylTypes.xsd" namespace="http://www.hybrasyl.com/XML/HybrasylCommon"/>
+  <xs:import schemaLocation="hybrasylTypes.xsd" namespace="http://www.hybrasyl.com/XML/HybrasylCommon" />
 
   <xs:complexType name="SpawnPoints">
     <xs:sequence>
@@ -19,13 +18,13 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="SpawnPoint">
     <xs:simpleContent>
       <xs:extension base="hyb:String8">
-        <xs:attribute name="mapname" type="xs:string" use="required"/>
-        <xs:attribute name="x" type="xs:unsignedByte" use="required"/>
-        <xs:attribute name="y" type="xs:unsignedByte" use="required"/>
+        <xs:attribute name="mapname" type="xs:string" use="required" />
+        <xs:attribute name="x" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="y" type="xs:unsignedByte" use="required" />
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -33,12 +32,12 @@
   <xs:element name="nation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="name" type="hyb:String8" minOccurs="1" maxOccurs="1"/>
-        <xs:element name="description" type="hyb:String8" minOccurs="0" maxOccurs="1"/>
-        <xs:element name="default" minOccurs="0" maxOccurs="1"/>  
-        <xs:element name="spawnpoints" type="nations:SpawnPoints" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="name" type="hyb:String8" minOccurs="1" maxOccurs="1" />
+        <xs:element name="description" type="hyb:String8" minOccurs="0" maxOccurs="1" />
+        <xs:element name="default" minOccurs="0" maxOccurs="1" />
+        <xs:element name="spawnpoints" type="nations:SpawnPoints" minOccurs="0" maxOccurs="1" />
       </xs:sequence>
-      <xs:attribute name="flag" type="xs:unsignedByte" use="required"/>
+      <xs:attribute name="flag" type="xs:unsignedByte" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -5,40 +5,43 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #pragma warning disable
+
 namespace Hybrasyl.XSD
 {
     using System;
-    using System.Diagnostics;
-    using System.Xml.Serialization;
     using System.Collections;
-    using System.Xml.Schema;
-    using System.ComponentModel;
-    using System.Xml;
     using System.Collections.Generic;
-    
-    
+    using System.ComponentModel;
+    using System.Diagnostics;
+    using System.Xml;
+    using System.Xml.Schema;
+    using System.Xml.Serialization;
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Items")]
-    [XmlRootAttribute("item", Namespace="http://www.hybrasyl.com/XML/Items", IsNullable=false)]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Items")]
+    [XmlRootAttribute("item", Namespace = "http://www.hybrasyl.com/XML/Items", IsNullable = false)]
     public partial class ItemType
     {
-        
         private ItemProperties _properties;
-        
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlElementAttribute("comment")]
         public string Comment { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool CommentSpecified { get; set; }
+
         [XmlIgnore()]
         public bool PropertiesSpecified { get; set; }
-        
+
         [XmlElementAttribute("properties")]
         public ItemProperties Properties
         {
@@ -56,65 +59,76 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemProperties")]
     public partial class ItemProperties
     {
-        
         private ItemPropertiesAppearance _appearance;
-        
+
         private List<CastModifiersLines> _castmodifiers;
-        
+
         private ItemPropertiesStackable _stackable;
-        
+
         private ItemPropertiesPhysical _physical;
-        
+
         private ItemPropertiesEquipment _equipment;
-        
+
         private ItemPropertiesStateffects _stateffects;
-        
+
         private ItemPropertiesVariants _variants;
-        
+
         private ItemPropertiesVendor _vendor;
-        
+
         private ItemPropertiesDamage _damage;
-        
+
         private ItemPropertiesUse _use;
-        
+
         private ItemPropertiesRestrictions _restrictions;
-        
+
         [XmlElementAttribute("flags")]
         public ItemFlags Flags { get; set; }
+
         [XmlIgnore]
         public bool FlagsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool AppearanceSpecified { get; set; }
+
         [XmlIgnore()]
         public bool CastmodifiersSpecified { get; set; }
+
         [XmlIgnore()]
         public bool StackableSpecified { get; set; }
+
         [XmlIgnore()]
         public bool PhysicalSpecified { get; set; }
+
         [XmlIgnore()]
         public bool EquipmentSpecified { get; set; }
+
         [XmlIgnore()]
         public bool StateffectsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool VariantsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool VendorSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DamageSpecified { get; set; }
+
         [XmlIgnore()]
         public bool UseSpecified { get; set; }
+
         [XmlIgnore()]
         public bool RestrictionsSpecified { get; set; }
-        
+
         [XmlElementAttribute("appearance")]
         public ItemPropertiesAppearance Appearance
         {
@@ -131,8 +145,8 @@ namespace Hybrasyl.XSD
                 _appearance = value;
             }
         }
-        
-        [XmlArrayItemAttribute("lines", IsNullable=false, ElementName="castmodifiers")]
+
+        [XmlArrayItemAttribute("lines", IsNullable = false, ElementName = "castmodifiers")]
         public List<CastModifiersLines> Castmodifiers
         {
             get
@@ -148,7 +162,7 @@ namespace Hybrasyl.XSD
                 _castmodifiers = value;
             }
         }
-        
+
         [XmlElementAttribute("stackable")]
         public ItemPropertiesStackable Stackable
         {
@@ -165,7 +179,7 @@ namespace Hybrasyl.XSD
                 _stackable = value;
             }
         }
-        
+
         [XmlElementAttribute("physical")]
         public ItemPropertiesPhysical Physical
         {
@@ -182,7 +196,7 @@ namespace Hybrasyl.XSD
                 _physical = value;
             }
         }
-        
+
         [XmlElementAttribute("equipment")]
         public ItemPropertiesEquipment Equipment
         {
@@ -199,7 +213,7 @@ namespace Hybrasyl.XSD
                 _equipment = value;
             }
         }
-        
+
         [XmlElementAttribute("stateffects")]
         public ItemPropertiesStateffects Stateffects
         {
@@ -216,7 +230,7 @@ namespace Hybrasyl.XSD
                 _stateffects = value;
             }
         }
-        
+
         [XmlElementAttribute("variants")]
         public ItemPropertiesVariants Variants
         {
@@ -233,7 +247,7 @@ namespace Hybrasyl.XSD
                 _variants = value;
             }
         }
-        
+
         [XmlElementAttribute("vendor")]
         public ItemPropertiesVendor Vendor
         {
@@ -250,7 +264,7 @@ namespace Hybrasyl.XSD
                 _vendor = value;
             }
         }
-        
+
         [XmlElementAttribute("damage")]
         public ItemPropertiesDamage Damage
         {
@@ -267,7 +281,7 @@ namespace Hybrasyl.XSD
                 _damage = value;
             }
         }
-        
+
         [XmlElementAttribute("use")]
         public ItemPropertiesUse Use
         {
@@ -284,7 +298,7 @@ namespace Hybrasyl.XSD
                 _use = value;
             }
         }
-        
+
         [XmlElementAttribute("restrictions")]
         public ItemPropertiesRestrictions Restrictions
         {
@@ -302,222 +316,252 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesAppearance")]
     public partial class ItemPropertiesAppearance
     {
-        
-        [XmlAttributeAttribute(AttributeName="sprite")]
+        [XmlAttributeAttribute(AttributeName = "sprite")]
         public ushort Sprite { get; set; }
-        [XmlAttributeAttribute(AttributeName="equipsprite")]
+
+        [XmlAttributeAttribute(AttributeName = "equipsprite")]
         public ushort Equipsprite { get; set; }
+
         [XmlIgnore]
         public bool EquipspriteSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="displaysprite")]
+
+        [XmlAttributeAttribute(AttributeName = "displaysprite")]
         public ushort Displaysprite { get; set; }
+
         [XmlIgnore]
         public bool DisplayspriteSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="bodystyle")]
+
+        [XmlAttributeAttribute(AttributeName = "bodystyle")]
         [DefaultValueAttribute(ItemBodystyle.transparent)]
         public ItemBodystyle Bodystyle { get; set; }
-        [XmlAttributeAttribute(AttributeName="color")]
+
+        [XmlAttributeAttribute(AttributeName = "color")]
         [DefaultValueAttribute(ItemColor.none)]
         public ItemColor Color { get; set; }
+
         [XmlIgnore()]
         public bool SpriteSpecified { get; set; }
+
         [XmlIgnore()]
         public bool BodystyleSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ColorSpecified { get; set; }
-        
+
         public ItemPropertiesAppearance()
         {
             Bodystyle = ItemBodystyle.transparent;
             Color = ItemColor.none;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("ItemBodystyle")]
     public enum ItemBodystyle
     {
-
         /// <remarks/>
         male,
+
         /// <remarks/>
         transparent,
-        
+
         /// <remarks/>
         maleblack,
-        
+
         /// <remarks/>
         malered,
-        
+
         /// <remarks/>
         female,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("ItemColor")]
     public enum ItemColor
     {
-        
         /// <remarks/>
         none,
-        
+
         /// <remarks/>
         black,
-        
+
         /// <remarks/>
         red,
-        
+
         /// <remarks/>
         orange,
-        
+
         /// <remarks/>
         yellow,
-        
+
         /// <remarks/>
         teal,
-        
+
         /// <remarks/>
         blue,
-        
+
         /// <remarks/>
         purple,
-        
+
         /// <remarks/>
         darkgreen,
-        
+
         /// <remarks/>
         green,
-        
+
         /// <remarks/>
         lightorange,
-        
+
         /// <remarks/>
         brown,
-        
+
         /// <remarks/>
         grey,
-        
+
         /// <remarks/>
         darkblue,
-        
+
         /// <remarks/>
         flesh,
+
         white
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("CastModifiersLines")]
     public partial class CastModifiersLines
     {
-        
-        [XmlAttributeAttribute(AttributeName="offset")]
+        [XmlAttributeAttribute(AttributeName = "offset")]
         public sbyte Offset { get; set; }
+
         [XmlIgnore]
         public bool OffsetSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="number")]
+
+        [XmlAttributeAttribute(AttributeName = "number")]
         public sbyte Number { get; set; }
+
         [XmlIgnore]
         public bool NumberSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="modifier")]
+
+        [XmlAttributeAttribute(AttributeName = "modifier")]
         public sbyte Modifier { get; set; }
+
         [XmlIgnore]
         public bool ModifierSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="global")]
+
+        [XmlAttributeAttribute(AttributeName = "global")]
         [DefaultValueAttribute(false)]
         public bool Global { get; set; }
-        [XmlAttributeAttribute(DataType="token", AttributeName="spellgroup")]
+
+        [XmlAttributeAttribute(DataType = "token", AttributeName = "spellgroup")]
         public string Spellgroup { get; set; }
-        [XmlAttributeAttribute(AttributeName="min")]
+
+        [XmlAttributeAttribute(AttributeName = "min")]
         public sbyte Min { get; set; }
+
         [XmlIgnore]
         public bool MinSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         public sbyte Max { get; set; }
+
         [XmlIgnore]
         public bool MaxSpecified { get; set; }
+
         [XmlIgnore()]
         public bool GlobalSpecified { get; set; }
+
         [XmlIgnore()]
         public bool SpellgroupSpecified { get; set; }
-        
+
         public CastModifiersLines()
         {
             Global = false;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesStackable")]
     public partial class ItemPropertiesStackable
     {
-        
-        [XmlAttributeAttribute(AttributeName="max")]
+        [XmlAttributeAttribute(AttributeName = "max")]
         public byte Max { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesPhysical")]
     public partial class ItemPropertiesPhysical
     {
-        
-        [XmlAttributeAttribute(AttributeName="value")]
+        [XmlAttributeAttribute(AttributeName = "value")]
         [DefaultValueAttribute(typeof(uint), "0")]
         public uint Value { get; set; }
-        [XmlAttributeAttribute(AttributeName="weight")]
+
+        [XmlAttributeAttribute(AttributeName = "weight")]
         [DefaultValueAttribute(1)]
         public int Weight { get; set; }
-        [XmlAttributeAttribute(AttributeName="durability")]
+
+        [XmlAttributeAttribute(AttributeName = "durability")]
         [DefaultValueAttribute(typeof(uint), "1")]
         public uint Durability { get; set; }
-        [XmlAttributeAttribute(AttributeName="perishable")]
+
+        [XmlAttributeAttribute(AttributeName = "perishable")]
         [DefaultValueAttribute(false)]
         public bool Perishable { get; set; }
-        [XmlAttributeAttribute(AttributeName="vendorable")]
+
+        [XmlAttributeAttribute(AttributeName = "vendorable")]
         [DefaultValueAttribute(true)]
         public bool Vendorable { get; set; }
-        [XmlAttributeAttribute(AttributeName="bound")]
+
+        [XmlAttributeAttribute(AttributeName = "bound")]
         [DefaultValueAttribute(false)]
         public bool Bound { get; set; }
+
         [XmlIgnore()]
         public bool ValueSpecified { get; set; }
+
         [XmlIgnore()]
         public bool WeightSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DurabilitySpecified { get; set; }
+
         [XmlIgnore()]
         public bool PerishableSpecified { get; set; }
+
         [XmlIgnore()]
         public bool VendorableSpecified { get; set; }
+
         [XmlIgnore()]
         public bool BoundSpecified { get; set; }
-        
+
         public ItemPropertiesPhysical()
         {
             Value = ((uint)(0));
@@ -528,152 +572,155 @@ namespace Hybrasyl.XSD
             Bound = false;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesEquipment")]
     public partial class ItemPropertiesEquipment
     {
-        
-        [XmlAttributeAttribute(AttributeName="slot")]
+        [XmlAttributeAttribute(AttributeName = "slot")]
         public EquipmentSlot Slot { get; set; }
-        [XmlAttributeAttribute(AttributeName="unique")]
+
+        [XmlAttributeAttribute(AttributeName = "unique")]
         [DefaultValueAttribute(false)]
         public bool Unique { get; set; }
-        [XmlAttributeAttribute(AttributeName="weapontype")]
+
+        [XmlAttributeAttribute(AttributeName = "weapontype")]
         public WeaponType Weapontype { get; set; }
+
         [XmlIgnore]
         public bool WeapontypeSpecified { get; set; }
+
         [XmlIgnore()]
         public bool SlotSpecified { get; set; }
+
         [XmlIgnore()]
         public bool UniqueSpecified { get; set; }
-        
+
         public ItemPropertiesEquipment()
         {
             Unique = false;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("EquipmentSlot")]
     public enum EquipmentSlot
     {
-        
         /// <remarks/>
         none,
-        
+
         /// <remarks/>
         weapon,
-        
+
         /// <remarks/>
         armor,
-        
+
         /// <remarks/>
         shield,
-        
+
         /// <remarks/>
         helmet,
-        
+
         /// <remarks/>
         earring,
-        
+
         /// <remarks/>
         necklace,
-        
+
         /// <remarks/>
         lefthand,
-        
+
         /// <remarks/>
         righthand,
-        
+
         /// <remarks/>
         leftarm,
-        
+
         /// <remarks/>
         rightarm,
-        
+
         /// <remarks/>
         waist,
-        
+
         /// <remarks/>
         leg,
-        
+
         /// <remarks/>
         foot,
-        
+
         /// <remarks/>
         firstacc,
-        
+
         /// <remarks/>
         trousers,
-        
+
         /// <remarks/>
         coat,
-        
+
         /// <remarks/>
         secondacc,
-        
+
         /// <remarks/>
         thirdacc,
-        
+
         /// <remarks/>
         gauntlet,
-        
+
         /// <remarks/>
         ring,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("WeaponType")]
     public enum WeaponType
     {
-        
         /// <remarks/>
         onehand,
-        
+
         /// <remarks/>
         twohand,
-        
+
         /// <remarks/>
         dagger,
-        
+
         /// <remarks/>
         staff,
-        
+
         /// <remarks/>
         claw,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesStateffects")]
     public partial class ItemPropertiesStateffects
     {
-        
         private ItemPropertiesStateffectsBase _base;
-        
+
         private ItemPropertiesStateffectsCombat _combat;
-        
+
         private ItemPropertiesStateffectsElement _element;
-        
+
         [XmlIgnore()]
         public bool BaseSpecified { get; set; }
+
         [XmlIgnore()]
         public bool CombatSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ElementSpecified { get; set; }
-        
+
         [XmlElementAttribute("base")]
         public ItemPropertiesStateffectsBase Base
         {
@@ -690,7 +737,7 @@ namespace Hybrasyl.XSD
                 _base = value;
             }
         }
-        
+
         [XmlElementAttribute("combat")]
         public ItemPropertiesStateffectsCombat Combat
         {
@@ -707,7 +754,7 @@ namespace Hybrasyl.XSD
                 _combat = value;
             }
         }
-        
+
         [XmlElementAttribute("element")]
         public ItemPropertiesStateffectsElement Element
         {
@@ -725,52 +772,64 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesStateffectsBase")]
     public partial class ItemPropertiesStateffectsBase
     {
-        
-        [XmlAttributeAttribute(AttributeName="str")]
+        [XmlAttributeAttribute(AttributeName = "str")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Str { get; set; }
-        [XmlAttributeAttribute(AttributeName="int")]
+
+        [XmlAttributeAttribute(AttributeName = "int")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Int { get; set; }
-        [XmlAttributeAttribute(AttributeName="wis")]
+
+        [XmlAttributeAttribute(AttributeName = "wis")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Wis { get; set; }
-        [XmlAttributeAttribute(AttributeName="con")]
+
+        [XmlAttributeAttribute(AttributeName = "con")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Con { get; set; }
-        [XmlAttributeAttribute(AttributeName="dex")]
+
+        [XmlAttributeAttribute(AttributeName = "dex")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Dex { get; set; }
-        [XmlAttributeAttribute(AttributeName="hp")]
+
+        [XmlAttributeAttribute(AttributeName = "hp")]
         [DefaultValueAttribute(0)]
         public int Hp { get; set; }
-        [XmlAttributeAttribute(AttributeName="mp")]
+
+        [XmlAttributeAttribute(AttributeName = "mp")]
         [DefaultValueAttribute(0)]
         public int Mp { get; set; }
+
         [XmlIgnore()]
         public bool StrSpecified { get; set; }
+
         [XmlIgnore()]
         public bool IntSpecified { get; set; }
+
         [XmlIgnore()]
         public bool WisSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ConSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DexSpecified { get; set; }
+
         [XmlIgnore()]
         public bool HpSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MpSpecified { get; set; }
-        
+
         public ItemPropertiesStateffectsBase()
         {
             Str = ((sbyte)(0));
@@ -782,42 +841,50 @@ namespace Hybrasyl.XSD
             Mp = 0;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesStateffectsCombat")]
     public partial class ItemPropertiesStateffectsCombat
     {
-        
-        [XmlAttributeAttribute(AttributeName="hit")]
+        [XmlAttributeAttribute(AttributeName = "hit")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Hit { get; set; }
-        [XmlAttributeAttribute(AttributeName="dmg")]
+
+        [XmlAttributeAttribute(AttributeName = "dmg")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Dmg { get; set; }
-        [XmlAttributeAttribute(AttributeName="ac")]
+
+        [XmlAttributeAttribute(AttributeName = "ac")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Ac { get; set; }
-        [XmlAttributeAttribute(AttributeName="regen")]
+
+        [XmlAttributeAttribute(AttributeName = "regen")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Regen { get; set; }
-        [XmlAttributeAttribute(AttributeName="mr")]
+
+        [XmlAttributeAttribute(AttributeName = "mr")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
         public sbyte Mr { get; set; }
+
         [XmlIgnore()]
         public bool HitSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DmgSpecified { get; set; }
+
         [XmlIgnore()]
         public bool AcSpecified { get; set; }
+
         [XmlIgnore()]
         public bool RegenSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MrSpecified { get; set; }
-        
+
         public ItemPropertiesStateffectsCombat()
         {
             Hit = ((sbyte)(0));
@@ -827,110 +894,110 @@ namespace Hybrasyl.XSD
             Mr = ((sbyte)(0));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesStateffectsElement")]
     public partial class ItemPropertiesStateffectsElement
     {
-        
-        [XmlAttributeAttribute(AttributeName="offense")]
+        [XmlAttributeAttribute(AttributeName = "offense")]
         [DefaultValueAttribute(Element.none)]
         public Element Offense { get; set; }
-        [XmlAttributeAttribute(AttributeName="defense")]
+
+        [XmlAttributeAttribute(AttributeName = "defense")]
         [DefaultValueAttribute(Element.none)]
         public Element Defense { get; set; }
+
         [XmlIgnore()]
         public bool OffenseSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DefenseSpecified { get; set; }
-        
+
         public ItemPropertiesStateffectsElement()
         {
             Offense = Element.none;
             Defense = Element.none;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("Element")]
     public enum Element
     {
-        
         /// <remarks/>
         none,
-        
+
         /// <remarks/>
         fire,
-        
+
         /// <remarks/>
         water,
-        
+
         /// <remarks/>
         wind,
-        
+
         /// <remarks/>
         earth,
-        
+
         /// <remarks/>
         light,
-        
+
         /// <remarks/>
         dark,
-        
+
         /// <remarks/>
         wood,
-        
+
         /// <remarks/>
         metal,
-        
+
         /// <remarks/>
         undead,
-        
+
         /// <remarks/>
         random,
     }
-    
+
     [System.FlagsAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("ItemFlags")]
     public enum ItemFlags
     {
-        
         /// <remarks/>
         bound = 1,
-        
+
         /// <remarks/>
         depositable = 2,
-        
+
         /// <remarks/>
         enchantable = 4,
-        
+
         /// <remarks/>
         consecratable = 8,
-        
+
         /// <remarks/>
         tailorable = 16,
-        
+
         /// <remarks/>
         smithable = 32,
-        
+
         /// <remarks/>
         exchangeable = 64,
-        
+
         /// <remarks/>
         vendorable = 128,
-        
+
         /// <remarks/>
         perishable = 256,
-        
+
         /// <remarks/>
         unique = 512,
 
@@ -939,70 +1006,73 @@ namespace Hybrasyl.XSD
 
         /// <remarks/>
         master = 2048,
-
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesVariants")]
     public partial class ItemPropertiesVariants
     {
-        
-        [XmlElementAttribute("name", ElementName="name")]
+        [XmlElementAttribute("name", ElementName = "name")]
         public List<string> Name { get; set; }
-        [XmlElementAttribute("group", ElementName="group")]
+
+        [XmlElementAttribute("group", ElementName = "group")]
         public List<string> Group { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool GroupSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesVendor")]
     public partial class ItemPropertiesVendor
     {
-        
         [XmlElementAttribute("description")]
         public string Description { get; set; }
-        [XmlAttributeAttribute(AttributeName="shoptab")]
+
+        [XmlAttributeAttribute(AttributeName = "shoptab")]
         public sbyte Shoptab { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ShoptabSpecified { get; set; }
-        
+
         public ItemPropertiesVendor()
         {
             Description = "item";
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesDamage")]
     public partial class ItemPropertiesDamage
     {
-        
         private ItemPropertiesDamageSmall _small;
-        
+
         private ItemPropertiesDamageLarge _large;
-        
+
         [XmlIgnore()]
         public bool SmallSpecified { get; set; }
+
         [XmlIgnore()]
         public bool LargeSpecified { get; set; }
-        
+
         [XmlElementAttribute("small")]
         public ItemPropertiesDamageSmall Small
         {
@@ -1019,7 +1089,7 @@ namespace Hybrasyl.XSD
                 _small = value;
             }
         }
-        
+
         [XmlElementAttribute("large")]
         public ItemPropertiesDamageLarge Large
         {
@@ -1037,101 +1107,111 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesDamageSmall")]
     public partial class ItemPropertiesDamageSmall
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(ushort), "0")]
         public ushort Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(ushort), "0")]
         public ushort Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public ItemPropertiesDamageSmall()
         {
             Min = ((ushort)(0));
             Max = ((ushort)(0));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesDamageLarge")]
     public partial class ItemPropertiesDamageLarge
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(ushort), "0")]
         public ushort Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(ushort), "0")]
         public ushort Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public ItemPropertiesDamageLarge()
         {
             Min = ((ushort)(0));
             Max = ((ushort)(0));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesUse")]
     public partial class ItemPropertiesUse
     {
-        
         private ItemPropertiesUseTeleport _teleport;
-        
+
         private ItemPropertiesUsePlayerEffect _playerEffect;
-        
+
         private ItemPropertiesUseEffect _effect;
-        
+
         private ItemPropertiesUseSound _sound;
-        
+
         [XmlElementAttribute("scriptname")]
         public string Scriptname { get; set; }
-        [XmlAttributeAttribute(AttributeName="consumed")]
+
+        [XmlAttributeAttribute(AttributeName = "consumed")]
         [DefaultValueAttribute(true)]
         public bool Consumed { get; set; }
+
         [XmlIgnore()]
         public bool ScriptnameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool TeleportSpecified { get; set; }
+
         [XmlIgnore()]
         public bool PlayerEffectSpecified { get; set; }
+
         [XmlIgnore()]
         public bool EffectSpecified { get; set; }
+
         [XmlIgnore()]
         public bool SoundSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ConsumedSpecified { get; set; }
-        
+
         public ItemPropertiesUse()
         {
             Consumed = true;
         }
-        
+
         [XmlElementAttribute("teleport")]
         public ItemPropertiesUseTeleport Teleport
         {
@@ -1148,7 +1228,7 @@ namespace Hybrasyl.XSD
                 _teleport = value;
             }
         }
-        
+
         [XmlElementAttribute("playerEffect")]
         public ItemPropertiesUsePlayerEffect PlayerEffect
         {
@@ -1165,7 +1245,7 @@ namespace Hybrasyl.XSD
                 _playerEffect = value;
             }
         }
-        
+
         [XmlElementAttribute("effect")]
         public ItemPropertiesUseEffect Effect
         {
@@ -1182,7 +1262,7 @@ namespace Hybrasyl.XSD
                 _effect = value;
             }
         }
-        
+
         [XmlElementAttribute("sound")]
         public ItemPropertiesUseSound Sound
         {
@@ -1200,60 +1280,70 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesUseTeleport")]
     public partial class ItemPropertiesUseTeleport
     {
-        
-        [XmlAttributeAttribute(AttributeName="x")]
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlTextAttribute]
         public string Value { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ValueSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesUsePlayerEffect")]
     public partial class ItemPropertiesUsePlayerEffect
     {
-        
-        [XmlAttributeAttribute(AttributeName="gold")]
+        [XmlAttributeAttribute(AttributeName = "gold")]
         [DefaultValueAttribute(0)]
         public int Gold { get; set; }
-        [XmlAttributeAttribute(AttributeName="hp")]
+
+        [XmlAttributeAttribute(AttributeName = "hp")]
         [DefaultValueAttribute(0)]
         public int Hp { get; set; }
-        [XmlAttributeAttribute(AttributeName="mp")]
+
+        [XmlAttributeAttribute(AttributeName = "mp")]
         [DefaultValueAttribute(0)]
         public int Mp { get; set; }
-        [XmlAttributeAttribute(AttributeName="xp")]
+
+        [XmlAttributeAttribute(AttributeName = "xp")]
         [DefaultValueAttribute(0)]
         public int Xp { get; set; }
+
         [XmlIgnore()]
         public bool GoldSpecified { get; set; }
+
         [XmlIgnore()]
         public bool HpSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MpSpecified { get; set; }
+
         [XmlIgnore()]
         public bool XpSpecified { get; set; }
-        
+
         public ItemPropertiesUsePlayerEffect()
         {
             Gold = 0;
@@ -1262,79 +1352,85 @@ namespace Hybrasyl.XSD
             Xp = 0;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesUseEffect")]
     public partial class ItemPropertiesUseEffect
     {
-        
-        [XmlAttributeAttribute(AttributeName="id")]
+        [XmlAttributeAttribute(AttributeName = "id")]
         public ushort Id { get; set; }
-        [XmlAttributeAttribute(AttributeName="speed")]
+
+        [XmlAttributeAttribute(AttributeName = "speed")]
         [DefaultValueAttribute(typeof(sbyte), "100")]
         public sbyte Speed { get; set; }
+
         [XmlIgnore()]
         public bool IdSpecified { get; set; }
+
         [XmlIgnore()]
         public bool SpeedSpecified { get; set; }
-        
+
         public ItemPropertiesUseEffect()
         {
             Speed = ((sbyte)(100));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesUseSound")]
     public partial class ItemPropertiesUseSound
     {
-        
-        [XmlAttributeAttribute(AttributeName="id")]
+        [XmlAttributeAttribute(AttributeName = "id")]
         public sbyte Id { get; set; }
+
         [XmlIgnore()]
         public bool IdSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesRestrictions")]
     public partial class ItemPropertiesRestrictions
     {
-        
         private ItemPropertiesRestrictionsLevel _level;
-        
+
         private ItemPropertiesRestrictionsAB _ab;
-        
+
         [XmlElementAttribute("class")]
         public Class Class { get; set; }
+
         [XmlIgnore]
         public bool ClassSpecified { get; set; }
+
         [DefaultValueAttribute(Gender.neutral)]
         [XmlElementAttribute("gender")]
         public Gender Gender { get; set; }
+
         [XmlIgnore()]
         public bool LevelSpecified { get; set; }
+
         [XmlIgnore()]
         public bool AbSpecified { get; set; }
+
         [XmlIgnore()]
         public bool GenderSpecified { get; set; }
-        
+
         public ItemPropertiesRestrictions()
         {
             Gender = Gender.neutral;
         }
-        
+
         [XmlElementAttribute("level")]
         public ItemPropertiesRestrictionsLevel Level
         {
@@ -1351,7 +1447,7 @@ namespace Hybrasyl.XSD
                 _level = value;
             }
         }
-        
+
         [XmlElementAttribute("ab")]
         public ItemPropertiesRestrictionsAB Ab
         {
@@ -1369,68 +1465,71 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesRestrictionsLevel")]
     public partial class ItemPropertiesRestrictionsLevel
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(byte), "0")]
         public byte Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(byte), "255")]
         public byte Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public ItemPropertiesRestrictionsLevel()
         {
             Min = ((byte)(0));
             Max = ((byte)(255));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("ItemPropertiesRestrictionsAB")]
     public partial class ItemPropertiesRestrictionsAB
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(byte), "0")]
         public byte Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(byte), "255")]
         public byte Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public ItemPropertiesRestrictionsAB()
         {
             Min = ((byte)(0));
             Max = ((byte)(255));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("Class")]
     public enum Class
     {
-
         /// <remarks/>
         peasant,
 
@@ -1452,40 +1551,40 @@ namespace Hybrasyl.XSD
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("Gender")]
     public enum Gender
     {
-        
         /// <remarks/>
         neutral,
-        
+
         /// <remarks/>
         male,
-        
+
         /// <remarks/>
         female,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Items")]
-    [XmlRootAttribute("variantgroup", Namespace="http://www.hybrasyl.com/XML/Items", IsNullable=false)]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Items")]
+    [XmlRootAttribute("variantgroup", Namespace = "http://www.hybrasyl.com/XML/Items", IsNullable = false)]
     public partial class VariantGroupType
     {
-        
         private List<VariantType> _variant;
-        
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool VariantSpecified { get; set; }
-        
-        [XmlElementAttribute("variant", ElementName="variant")]
+
+        [XmlElementAttribute("variant", ElementName = "variant")]
         public List<VariantType> Variant
         {
             get
@@ -1502,33 +1601,38 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Items")]
-    [XmlRootAttribute("variant", Namespace="http://www.hybrasyl.com/XML/Items", IsNullable=false)]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Items")]
+    [XmlRootAttribute("variant", Namespace = "http://www.hybrasyl.com/XML/Items", IsNullable = false)]
     public partial class VariantType
     {
-        
         private VariantProperties _properties;
-        
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlElementAttribute("modifier")]
         public string Modifier { get; set; }
+
         [XmlElementAttribute("comment")]
         public string Comment { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ModifierSpecified { get; set; }
+
         [XmlIgnore()]
         public bool CommentSpecified { get; set; }
+
         [XmlIgnore()]
         public bool PropertiesSpecified { get; set; }
-        
+
         [XmlElementAttribute("properties")]
         public VariantProperties Properties
         {
@@ -1546,49 +1650,57 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantProperties")]
     public partial class VariantProperties
     {
-        
         private VariantPropertiesAppearance _appearance;
-        
+
         private VariantPropertiesDamage _damage;
-        
+
         private VariantPropertiesPhysical _physical;
-        
+
         private VariantPropertiesRestrictions _restrictions;
-        
+
         private VariantPropertiesStackable _stackable;
-        
+
         private VariantPropertiesStateffects _stateffects;
-        
+
         [XmlElementAttribute("flags")]
         public ItemFlags Flags { get; set; }
+
         [XmlIgnore]
         public bool FlagsSpecified { get; set; }
+
         [XmlElementAttribute("script")]
         public string Script { get; set; }
+
         [XmlIgnore()]
         public bool AppearanceSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DamageSpecified { get; set; }
+
         [XmlIgnore()]
         public bool PhysicalSpecified { get; set; }
+
         [XmlIgnore()]
         public bool RestrictionsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ScriptSpecified { get; set; }
+
         [XmlIgnore()]
         public bool StackableSpecified { get; set; }
+
         [XmlIgnore()]
         public bool StateffectsSpecified { get; set; }
-        
+
         [XmlElementAttribute("appearance")]
         public VariantPropertiesAppearance Appearance
         {
@@ -1605,7 +1717,7 @@ namespace Hybrasyl.XSD
                 _appearance = value;
             }
         }
-        
+
         [XmlElementAttribute("damage")]
         public VariantPropertiesDamage Damage
         {
@@ -1622,7 +1734,7 @@ namespace Hybrasyl.XSD
                 _damage = value;
             }
         }
-        
+
         [XmlElementAttribute("physical")]
         public VariantPropertiesPhysical Physical
         {
@@ -1639,7 +1751,7 @@ namespace Hybrasyl.XSD
                 _physical = value;
             }
         }
-        
+
         [XmlElementAttribute("restrictions")]
         public VariantPropertiesRestrictions Restrictions
         {
@@ -1656,7 +1768,7 @@ namespace Hybrasyl.XSD
                 _restrictions = value;
             }
         }
-        
+
         [XmlElementAttribute("stackable")]
         public VariantPropertiesStackable Stackable
         {
@@ -1673,7 +1785,7 @@ namespace Hybrasyl.XSD
                 _stackable = value;
             }
         }
-        
+
         [XmlElementAttribute("stateffects")]
         public VariantPropertiesStateffects Stateffects
         {
@@ -1691,44 +1803,46 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesAppearance")]
     public partial class VariantPropertiesAppearance
     {
-        
-        [XmlAttributeAttribute(AttributeName="bodystyle")]
+        [XmlAttributeAttribute(AttributeName = "bodystyle")]
         public ItemBodystyle Bodystyle { get; set; }
+
         [XmlIgnore]
         public bool BodystyleSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="color")]
+
+        [XmlAttributeAttribute(AttributeName = "color")]
         public ItemColor Color { get; set; }
+
         [XmlIgnore]
         public bool ColorSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesDamage")]
     public partial class VariantPropertiesDamage
     {
-        
         private VariantPropertiesDamageSmall _small;
-        
+
         private VariantPropertiesDamageLarge _large;
-        
+
         [XmlIgnore()]
         public bool SmallSpecified { get; set; }
+
         [XmlIgnore()]
         public bool LargeSpecified { get; set; }
-        
+
         [XmlElementAttribute("small")]
         public VariantPropertiesDamageSmall Small
         {
@@ -1745,7 +1859,7 @@ namespace Hybrasyl.XSD
                 _small = value;
             }
         }
-        
+
         [XmlElementAttribute("large")]
         public VariantPropertiesDamageLarge Large
         {
@@ -1763,101 +1877,115 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesDamageSmall")]
     public partial class VariantPropertiesDamageSmall
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute("0")]
         public string Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute("0")]
         public string Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public VariantPropertiesDamageSmall()
         {
             Min = "0";
             Max = "0";
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesDamageLarge")]
     public partial class VariantPropertiesDamageLarge
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute("0")]
         public string Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute("0")]
         public string Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public VariantPropertiesDamageLarge()
         {
             Min = "0";
             Max = "0";
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesPhysical")]
     public partial class VariantPropertiesPhysical
     {
-        
-        [XmlAttributeAttribute(AttributeName="value")]
+        [XmlAttributeAttribute(AttributeName = "value")]
         [DefaultValueAttribute("0")]
         public string Value { get; set; }
-        [XmlAttributeAttribute(AttributeName="weight")]
+
+        [XmlAttributeAttribute(AttributeName = "weight")]
         [DefaultValueAttribute("1")]
         public string Weight { get; set; }
-        [XmlAttributeAttribute(AttributeName="durability")]
+
+        [XmlAttributeAttribute(AttributeName = "durability")]
         [DefaultValueAttribute("1")]
         public string Durability { get; set; }
-        [XmlAttributeAttribute(AttributeName="perishable")]
+
+        [XmlAttributeAttribute(AttributeName = "perishable")]
         [DefaultValueAttribute(false)]
         public bool Perishable { get; set; }
-        [XmlAttributeAttribute(AttributeName="vendorable")]
+
+        [XmlAttributeAttribute(AttributeName = "vendorable")]
         [DefaultValueAttribute(true)]
         public bool Vendorable { get; set; }
-        [XmlAttributeAttribute(AttributeName="bound")]
+
+        [XmlAttributeAttribute(AttributeName = "bound")]
         [DefaultValueAttribute(false)]
         public bool Bound { get; set; }
+
         [XmlIgnore()]
         public bool ValueSpecified { get; set; }
+
         [XmlIgnore()]
         public bool WeightSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DurabilitySpecified { get; set; }
+
         [XmlIgnore()]
         public bool PerishableSpecified { get; set; }
+
         [XmlIgnore()]
         public bool VendorableSpecified { get; set; }
+
         [XmlIgnore()]
         public bool BoundSpecified { get; set; }
-        
+
         public VariantPropertiesPhysical()
         {
             Value = "0";
@@ -1868,39 +1996,43 @@ namespace Hybrasyl.XSD
             Bound = false;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesRestrictions")]
     public partial class VariantPropertiesRestrictions
     {
-        
         private VariantPropertiesRestrictionsLevel _level;
-        
+
         private VariantPropertiesRestrictionsAB _ab;
-        
+
         [XmlElementAttribute("class")]
         public Class Class { get; set; }
+
         [XmlIgnore]
         public bool ClassSpecified { get; set; }
+
         [DefaultValueAttribute(Gender.neutral)]
         [XmlElementAttribute("gender")]
         public Gender Gender { get; set; }
+
         [XmlIgnore()]
         public bool LevelSpecified { get; set; }
+
         [XmlIgnore()]
         public bool AbSpecified { get; set; }
+
         [XmlIgnore()]
         public bool GenderSpecified { get; set; }
-        
+
         public VariantPropertiesRestrictions()
         {
             Gender = Gender.neutral;
         }
-        
+
         [XmlElementAttribute("level")]
         public VariantPropertiesRestrictionsLevel Level
         {
@@ -1917,7 +2049,7 @@ namespace Hybrasyl.XSD
                 _level = value;
             }
         }
-        
+
         [XmlElementAttribute("ab")]
         public VariantPropertiesRestrictionsAB Ab
         {
@@ -1935,98 +2067,103 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesRestrictionsLevel")]
     public partial class VariantPropertiesRestrictionsLevel
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute("0")]
         public string Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute("255")]
         public string Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public VariantPropertiesRestrictionsLevel()
         {
             Min = "0";
             Max = "255";
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesRestrictionsAB")]
     public partial class VariantPropertiesRestrictionsAB
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute("0")]
         public string Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute("255")]
         public string Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public VariantPropertiesRestrictionsAB()
         {
             Min = "0";
             Max = "255";
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesStackable")]
     public partial class VariantPropertiesStackable
     {
-        
-        [XmlAttributeAttribute(AttributeName="max")]
+        [XmlAttributeAttribute(AttributeName = "max")]
         public string Max { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesStateffects")]
     public partial class VariantPropertiesStateffects
     {
-        
         private VariantPropertiesStateffectsBase _base;
-        
+
         private VariantPropertiesStateffectsCombat _combat;
-        
+
         private VariantPropertiesStateffectsElement _element;
-        
+
         [XmlIgnore()]
         public bool BaseSpecified { get; set; }
+
         [XmlIgnore()]
         public bool CombatSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ElementSpecified { get; set; }
-        
+
         [XmlElementAttribute("base")]
         public VariantPropertiesStateffectsBase Base
         {
@@ -2043,7 +2180,7 @@ namespace Hybrasyl.XSD
                 _base = value;
             }
         }
-        
+
         [XmlElementAttribute("combat")]
         public VariantPropertiesStateffectsCombat Combat
         {
@@ -2060,7 +2197,7 @@ namespace Hybrasyl.XSD
                 _combat = value;
             }
         }
-        
+
         [XmlElementAttribute("element")]
         public VariantPropertiesStateffectsElement Element
         {
@@ -2078,52 +2215,64 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesStateffectsBase")]
     public partial class VariantPropertiesStateffectsBase
     {
-        
-        [XmlAttributeAttribute(AttributeName="str")]
+        [XmlAttributeAttribute(AttributeName = "str")]
         [DefaultValueAttribute("0")]
         public string Str { get; set; }
-        [XmlAttributeAttribute(AttributeName="int")]
+
+        [XmlAttributeAttribute(AttributeName = "int")]
         [DefaultValueAttribute("0")]
         public string Int { get; set; }
-        [XmlAttributeAttribute(AttributeName="wis")]
+
+        [XmlAttributeAttribute(AttributeName = "wis")]
         [DefaultValueAttribute("0")]
         public string Wis { get; set; }
-        [XmlAttributeAttribute(AttributeName="con")]
+
+        [XmlAttributeAttribute(AttributeName = "con")]
         [DefaultValueAttribute("0")]
         public string Con { get; set; }
-        [XmlAttributeAttribute(AttributeName="dex")]
+
+        [XmlAttributeAttribute(AttributeName = "dex")]
         [DefaultValueAttribute("0")]
         public string Dex { get; set; }
-        [XmlAttributeAttribute(AttributeName="hp")]
+
+        [XmlAttributeAttribute(AttributeName = "hp")]
         [DefaultValueAttribute("0")]
         public string Hp { get; set; }
-        [XmlAttributeAttribute(AttributeName="mp")]
+
+        [XmlAttributeAttribute(AttributeName = "mp")]
         [DefaultValueAttribute("0")]
         public string Mp { get; set; }
+
         [XmlIgnore()]
         public bool StrSpecified { get; set; }
+
         [XmlIgnore()]
         public bool IntSpecified { get; set; }
+
         [XmlIgnore()]
         public bool WisSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ConSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DexSpecified { get; set; }
+
         [XmlIgnore()]
         public bool HpSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MpSpecified { get; set; }
-        
+
         public VariantPropertiesStateffectsBase()
         {
             Str = "0";
@@ -2135,42 +2284,50 @@ namespace Hybrasyl.XSD
             Mp = "0";
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesStateffectsCombat")]
     public partial class VariantPropertiesStateffectsCombat
     {
-        
-        [XmlAttributeAttribute(AttributeName="hit")]
+        [XmlAttributeAttribute(AttributeName = "hit")]
         [DefaultValueAttribute("0")]
         public string Hit { get; set; }
-        [XmlAttributeAttribute(AttributeName="dmg")]
+
+        [XmlAttributeAttribute(AttributeName = "dmg")]
         [DefaultValueAttribute("0")]
         public string Dmg { get; set; }
-        [XmlAttributeAttribute(AttributeName="ac")]
+
+        [XmlAttributeAttribute(AttributeName = "ac")]
         [DefaultValueAttribute("0")]
         public string Ac { get; set; }
-        [XmlAttributeAttribute(AttributeName="regen")]
+
+        [XmlAttributeAttribute(AttributeName = "regen")]
         [DefaultValueAttribute("0")]
         public string Regen { get; set; }
-        [XmlAttributeAttribute(AttributeName="mr")]
+
+        [XmlAttributeAttribute(AttributeName = "mr")]
         [DefaultValueAttribute("0")]
         public string Mr { get; set; }
+
         [XmlIgnore()]
         public bool HitSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DmgSpecified { get; set; }
+
         [XmlIgnore()]
         public bool AcSpecified { get; set; }
+
         [XmlIgnore()]
         public bool RegenSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MrSpecified { get; set; }
-        
+
         public VariantPropertiesStateffectsCombat()
         {
             Hit = "0";
@@ -2180,27 +2337,29 @@ namespace Hybrasyl.XSD
             Mr = "0";
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Items")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Items")]
     [XmlRootAttribute("VariantPropertiesStateffectsElement")]
     public partial class VariantPropertiesStateffectsElement
     {
-        
-        [XmlAttributeAttribute(AttributeName="offense")]
+        [XmlAttributeAttribute(AttributeName = "offense")]
         [DefaultValueAttribute(Element.none)]
         public Element Offense { get; set; }
-        [XmlAttributeAttribute(AttributeName="defense")]
+
+        [XmlAttributeAttribute(AttributeName = "defense")]
         [DefaultValueAttribute(Element.none)]
         public Element Defense { get; set; }
+
         [XmlIgnore()]
         public bool OffenseSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DefenseSpecified { get; set; }
-        
+
         public VariantPropertiesStateffectsElement()
         {
             Offense = Element.none;
@@ -2208,4 +2367,5 @@ namespace Hybrasyl.XSD
         }
     }
 }
+
 #pragma warning restore
