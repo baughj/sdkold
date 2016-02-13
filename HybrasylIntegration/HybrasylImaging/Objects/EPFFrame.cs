@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hybrasyl.Imaging.Objects
+﻿namespace Hybrasyl.Imaging.Objects
 {
     public class EPFFrame
     {
@@ -29,29 +23,33 @@ namespace Hybrasyl.Imaging.Objects
             }
         }
 
-
         public byte[] RawData
         {
             get { return rawData; }
         }
+
         public int Height
         {
             get { return height; }
         }
+
         public int Width
         {
             get { return width; }
         }
+
         public int Top
         {
             get { return top; }
             set { top = value; }
         }
+
         public int Left
         {
             get { return left; }
             set { left = value; }
         }
+
         public EPFFrame(int left, int top, int width, int height, byte[] rawData)
         {
             this.left = left;

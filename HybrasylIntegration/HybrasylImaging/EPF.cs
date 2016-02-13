@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Hybrasyl.Imaging.Objects;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hybrasyl.Imaging.Objects;
-using Hybrasyl.IO;
 
 namespace Hybrasyl.Imaging
 {
@@ -23,30 +17,37 @@ namespace Hybrasyl.Imaging
             get { return frames[index]; }
             set { frames[index] = value; }
         }
+
         public EPFFrame[] Frames
         {
             get { return frames; }
         }
+
         public long TOCAddress
         {
             get { return tocAddress; }
         }
+
         public int Unknown
         {
             get { return unknown; }
         }
+
         public int Height
         {
             get { return height; }
         }
+
         public int Width
         {
             get { return width; }
         }
+
         public int ExpectedFrames
         {
             get { return expectedFrames; }
         }
+
         private static EPF LoadEPF(Stream stream)
         {
             // Create Binary Reader
@@ -56,7 +57,6 @@ namespace Hybrasyl.Imaging
             // Create EPF Image
             EPF epf = new EPF();
 
-            
             epf.expectedFrames = reader.ReadUInt16();
             epf.width = reader.ReadUInt16();
             epf.height = reader.ReadUInt16();

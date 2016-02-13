@@ -5,83 +5,101 @@
 //  </auto-generated>
 // ------------------------------------------------------------------------------
 #pragma warning disable
+
 namespace Hybrasyl.XSD
 {
     using System;
-    using System.Diagnostics;
-    using System.Xml.Serialization;
     using System.Collections;
-    using System.Xml.Schema;
-    using System.ComponentModel;
-    using System.Xml;
     using System.Collections.Generic;
-    
-    
+    using System.ComponentModel;
+    using System.Diagnostics;
+    using System.Xml;
+    using System.Xml.Schema;
+    using System.Xml.Serialization;
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
-    [XmlRootAttribute("map", Namespace="http://www.hybrasyl.com/XML/Maps", IsNullable=false)]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
+    [XmlRootAttribute("map", Namespace = "http://www.hybrasyl.com/XML/Maps", IsNullable = false)]
     public partial class Map
     {
-        
         private List<Warp> _warps;
-        
+
         private List<Reactor> _reactors;
-        
+
         private List<Npc> _npcs;
-        
+
         private List<Spawn> _spawns;
-        
+
         private Signposts _signposts;
-        
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlElementAttribute("description")]
         public string Description { get; set; }
+
         [XmlElementAttribute("flags")]
         public MapFlags Flags { get; set; }
+
         [XmlIgnore]
         public bool FlagsSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="id")]
+
+        [XmlAttributeAttribute(AttributeName = "id")]
         public ushort Id { get; set; }
-        [XmlAttributeAttribute(AttributeName="music")]
+
+        [XmlAttributeAttribute(AttributeName = "music")]
         [DefaultValueAttribute(typeof(byte), "0")]
         public byte Music { get; set; }
-        [XmlAttributeAttribute(AttributeName="x")]
+
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool WarpsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ReactorsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool NpcsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool SpawnsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool SignpostsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool IdSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MusicSpecified { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
-        
+
         public Map()
         {
             Music = ((byte)(0));
         }
+
         [XmlArray("warps")]
-        [XmlArrayItemAttribute("warp", IsNullable=false, ElementName="warp")]
+        [XmlArrayItemAttribute("warp", IsNullable = false, ElementName = "warp")]
         public List<Warp> Warps
         {
             get
@@ -97,8 +115,8 @@ namespace Hybrasyl.XSD
                 _warps = value;
             }
         }
-        
-        [XmlArrayItemAttribute("reactor", IsNullable=false, ElementName="reactors")]
+
+        [XmlArrayItemAttribute("reactor", IsNullable = false, ElementName = "reactors")]
         public List<Reactor> Reactors
         {
             get
@@ -114,8 +132,9 @@ namespace Hybrasyl.XSD
                 _reactors = value;
             }
         }
+
         [XmlArray("npcs")]
-        [XmlArrayItemAttribute("npc", IsNullable=false, ElementName="npc")]
+        [XmlArrayItemAttribute("npc", IsNullable = false, ElementName = "npc")]
         public List<Npc> Npcs
         {
             get
@@ -131,8 +150,8 @@ namespace Hybrasyl.XSD
                 _npcs = value;
             }
         }
-        
-        [XmlArrayItemAttribute("spawn", IsNullable=false, ElementName="spawns")]
+
+        [XmlArrayItemAttribute("spawn", IsNullable = false, ElementName = "spawns")]
         public List<Spawn> Spawns
         {
             get
@@ -148,7 +167,7 @@ namespace Hybrasyl.XSD
                 _spawns = value;
             }
         }
-        
+
         [XmlElementAttribute("signposts")]
         public Signposts Signposts
         {
@@ -166,63 +185,70 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.FlagsAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("MapFlags")]
     public enum MapFlags
     {
-        
         /// <remarks/>
         snow = 1,
-        
+
         /// <remarks/>
         rain = 2,
-        
+
         /// <remarks/>
         dark = 4,
-        
+
         /// <remarks/>
         nomap = 8,
-        
+
         /// <remarks/>
         winter = 16,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("Warp")]
     public partial class Warp
     {
-        
         private WarpRestrictions _restrictions;
-        
+
         [XmlElementAttribute("description")]
         public string Description { get; set; }
+
         [XmlElementAttribute("maptarget", typeof(WarpMaptarget))]
         public WarpMaptarget MapTarget { get; set; }
+
         [XmlElementAttribute("worldmaptarget", typeof(WorldMapPointTarget))]
         public object WorldMapTarget { get; set; }
-        [XmlAttributeAttribute(AttributeName="x")]
+
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ItemSpecified { get; set; }
+
         [XmlIgnore()]
         public bool RestrictionsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
-        
+
         [XmlElementAttribute("restrictions")]
         public WarpRestrictions Restrictions
         {
@@ -240,56 +266,65 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("WarpMaptarget")]
     public partial class WarpMaptarget
     {
-        
-        [XmlAttributeAttribute(AttributeName="x")]
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlTextAttribute]
         public string Value { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ValueSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
-    [XmlRootAttribute("worldmap", Namespace="http://www.hybrasyl.com/XML/Maps", IsNullable=false)]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
+    [XmlRootAttribute("worldmap", Namespace = "http://www.hybrasyl.com/XML/Maps", IsNullable = false)]
     public partial class WorldMap
     {
-        
         private WorldMapPoints _points;
-        
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlElementAttribute("description")]
         public string Description { get; set; }
-        [XmlAttributeAttribute(AttributeName="clientmap")]
+
+        [XmlAttributeAttribute(AttributeName = "clientmap")]
         public string Clientmap { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool PointsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ClientmapSpecified { get; set; }
-        
+
         [XmlElementAttribute("points")]
         public WorldMapPoints Points
         {
@@ -307,26 +342,26 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("WorldMapPoints")]
     public partial class WorldMapPoints
     {
-        
         private List<WorldMapPoint> _point;
-        
+
         private WarpRestrictions _restrictions;
-        
+
         [XmlIgnore()]
         public bool PointSpecified { get; set; }
+
         [XmlIgnore()]
         public bool RestrictionsSpecified { get; set; }
-        
-        [XmlElementAttribute("point", ElementName="point")]
+
+        [XmlElementAttribute("point", ElementName = "point")]
         public List<WorldMapPoint> Point
         {
             get
@@ -342,7 +377,7 @@ namespace Hybrasyl.XSD
                 _point = value;
             }
         }
-        
+
         [XmlElementAttribute("restrictions")]
         public WarpRestrictions Restrictions
         {
@@ -360,41 +395,49 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("WorldMapPoint")]
     public partial class WorldMapPoint
     {
-        
         private WorldMapPointTarget _target;
-        
+
         private WarpRestrictions _restrictions;
-        
+
         [XmlElementAttribute("description")]
         public string Description { get; set; }
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
-        [XmlAttributeAttribute(AttributeName="x")]
+
+        [XmlAttributeAttribute(AttributeName = "x")]
         public ushort X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public ushort Y { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool TargetSpecified { get; set; }
+
         [XmlIgnore()]
         public bool RestrictionsSpecified { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
-        
+
         [XmlElementAttribute("target")]
         public WorldMapPointTarget Target
         {
@@ -411,7 +454,7 @@ namespace Hybrasyl.XSD
                 _target = value;
             }
         }
-        
+
         [XmlElementAttribute("restrictions")]
         public WarpRestrictions Restrictions
         {
@@ -429,53 +472,59 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("WorldMapPointTarget")]
     public partial class WorldMapPointTarget
     {
-        
-        [XmlAttributeAttribute(AttributeName="x")]
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlTextAttribute]
         public string Value { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ValueSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("WarpRestrictions")]
     public partial class WarpRestrictions
     {
-        
         private WarpRestrictionsLevel _level;
-        
+
         private WarpRestrictionsAB _ab;
-        
-        [XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, ElementName="noMobUse")]
+
+        [XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, ElementName = "noMobUse")]
         public object NoMobUse { get; set; }
+
         [XmlIgnore()]
         public bool LevelSpecified { get; set; }
+
         [XmlIgnore()]
         public bool AbSpecified { get; set; }
+
         [XmlIgnore()]
         public bool NoMobUseSpecified { get; set; }
-        
-        [XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, ElementName="level")]
+
+        [XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, ElementName = "level")]
         public WarpRestrictionsLevel Level
         {
             get
@@ -491,8 +540,8 @@ namespace Hybrasyl.XSD
                 _level = value;
             }
         }
-        
-        [XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, ElementName="ab")]
+
+        [XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, ElementName = "ab")]
         public WarpRestrictionsAB Ab
         {
             get
@@ -509,99 +558,113 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("WarpRestrictionsLevel")]
     public partial class WarpRestrictionsLevel
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(byte), "0")]
         public byte Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(byte), "255")]
         public byte Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public WarpRestrictionsLevel()
         {
             Min = ((byte)(0));
             Max = ((byte)(255));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("WarpRestrictionsAB")]
     public partial class WarpRestrictionsAB
     {
-        
-        [XmlAttributeAttribute(AttributeName="min")]
+        [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(byte), "0")]
         public byte Min { get; set; }
-        [XmlAttributeAttribute(AttributeName="max")]
+
+        [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(byte), "255")]
         public byte Max { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
-        
+
         public WarpRestrictionsAB()
         {
             Min = ((byte)(0));
             Max = ((byte)(255));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("Npc")]
     public partial class Npc
     {
-        
         private NpcAppearance _appearance;
-        
+
         private List<object> _inventory;
-        
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlElementAttribute("displayname")]
         public string Displayname { get; set; }
+
         [XmlElementAttribute("jobs")]
         public NpcJobList Jobs { get; set; }
+
         [XmlIgnore]
         public bool JobsSpecified { get; set; }
-        [XmlAttributeAttribute(AttributeName="x")]
+
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DisplaynameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool AppearanceSpecified { get; set; }
+
         [XmlIgnore()]
         public bool InventorySpecified { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
-        
+
         [XmlElementAttribute("appearance")]
         public NpcAppearance Appearance
         {
@@ -618,9 +681,9 @@ namespace Hybrasyl.XSD
                 _appearance = value;
             }
         }
-        
-        [XmlArrayItemAttribute("gold", typeof(byte), IsNullable=false, ElementName="inventory")]
-        [XmlArrayItemAttribute("item", typeof(NpcItem), IsNullable=false)]
+
+        [XmlArrayItemAttribute("gold", typeof(byte), IsNullable = false, ElementName = "inventory")]
+        [XmlArrayItemAttribute("item", typeof(NpcItem), IsNullable = false)]
         public List<object> Inventory
         {
             get
@@ -637,99 +700,105 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("NpcAppearance")]
     public partial class NpcAppearance
     {
-        
-        [XmlAttributeAttribute(AttributeName="sprite")]
+        [XmlAttributeAttribute(AttributeName = "sprite")]
         public ushort Sprite { get; set; }
-        [XmlAttributeAttribute(AttributeName="portrait")]
+
+        [XmlAttributeAttribute(AttributeName = "portrait")]
         public string Portrait { get; set; }
-        [XmlAttributeAttribute(AttributeName="direction")]
+
+        [XmlAttributeAttribute(AttributeName = "direction")]
         public byte Direction { get; set; }
+
         [XmlIgnore()]
         public bool SpriteSpecified { get; set; }
+
         [XmlIgnore()]
         public bool PortraitSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DirectionSpecified { get; set; }
     }
-    
+
     [System.FlagsAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/HybrasylCommon")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/HybrasylCommon")]
     [XmlRootAttribute("NpcJobList")]
     public enum NpcJobList
     {
-        
         /// <remarks/>
         vend = 1,
-        
+
         /// <remarks/>
         bank = 2,
-        
+
         /// <remarks/>
         train = 4,
-        
+
         /// <remarks/>
         repair = 8,
-        
+
         /// <remarks/>
         post = 16,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("NpcItem")]
     public partial class NpcItem
     {
-        
-        [XmlAttributeAttribute(AttributeName="quantity")]
+        [XmlAttributeAttribute(AttributeName = "quantity")]
         [DefaultValueAttribute(typeof(uint), "0")]
         public uint Quantity { get; set; }
-        [XmlAttributeAttribute(AttributeName="refresh")]
+
+        [XmlAttributeAttribute(AttributeName = "refresh")]
         [DefaultValueAttribute(typeof(uint), "0")]
         public uint Refresh { get; set; }
+
         [XmlTextAttribute]
         public string Value { get; set; }
+
         [XmlIgnore()]
         public bool QuantitySpecified { get; set; }
+
         [XmlIgnore()]
         public bool RefreshSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ValueSpecified { get; set; }
-        
+
         public NpcItem()
         {
             Quantity = ((uint)(0));
             Refresh = ((uint)(0));
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("Signposts")]
     public partial class Signposts
     {
-        
         private List<object> _items;
-        
+
         [XmlIgnore()]
         public bool ItemsSpecified { get; set; }
-        
+
         [XmlElementAttribute("messageboard", typeof(Messageboard))]
         [XmlElementAttribute("signpost", typeof(Signpost))]
         public List<object> Items
@@ -748,105 +817,128 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("Messageboard")]
     public partial class Messageboard
     {
-        
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlElementAttribute("description")]
         public string Description { get; set; }
+
         [XmlElementAttribute("scriptname")]
         public string Scriptname { get; set; }
-        [XmlAttributeAttribute(AttributeName="x")]
+
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ScriptnameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("Signpost")]
     public partial class Signpost
     {
-        
         [XmlElementAttribute("message")]
         public string Message { get; set; }
+
         [XmlElementAttribute("scriptname")]
         public string Scriptname { get; set; }
-        [XmlAttributeAttribute(AttributeName="x")]
+
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
+
         [XmlIgnore()]
         public bool MessageSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ScriptnameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("Spawn")]
     public partial class Spawn
     {
-        
         private SpawnModifiers _spawnModifiers;
-        
+
         [XmlElementAttribute("name")]
         public string Name { get; set; }
+
         [XmlElementAttribute("description")]
         public string Description { get; set; }
+
         [DefaultValueAttribute("random")]
         [XmlElementAttribute("strategy")]
         public string Strategy { get; set; }
-        [XmlAttributeAttribute(DataType="nonNegativeInteger", AttributeName="interval")]
+
+        [XmlAttributeAttribute(DataType = "nonNegativeInteger", AttributeName = "interval")]
         public string Interval { get; set; }
-        [XmlAttributeAttribute(DataType="nonNegativeInteger", AttributeName="checkInterval")]
+
+        [XmlAttributeAttribute(DataType = "nonNegativeInteger", AttributeName = "checkInterval")]
         public string CheckInterval { get; set; }
+
         [XmlIgnore()]
         public bool NameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool StrategySpecified { get; set; }
+
         [XmlIgnore()]
         public bool SpawnModifiersSpecified { get; set; }
+
         [XmlIgnore()]
         public bool IntervalSpecified { get; set; }
+
         [XmlIgnore()]
         public bool CheckIntervalSpecified { get; set; }
-        
+
         public Spawn()
         {
             Strategy = "random";
         }
-        
+
         [XmlElementAttribute("spawnModifiers")]
         public SpawnModifiers SpawnModifiers
         {
@@ -864,33 +956,37 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("SpawnModifiers")]
     public partial class SpawnModifiers
     {
-        
         private SpawnModifiersQuantity _quantity;
-        
+
         private List<SpawnModifiersZone> _zone;
-        
+
         [XmlElementAttribute("speed")]
         public float Speed { get; set; }
+
         [XmlIgnore]
         public bool SpeedSpecified { get; set; }
+
         [XmlElementAttribute("passive")]
         public object Passive { get; set; }
+
         [XmlIgnore()]
         public bool PassiveSpecified { get; set; }
+
         [XmlIgnore()]
         public bool QuantitySpecified { get; set; }
+
         [XmlIgnore()]
         public bool ZoneSpecified { get; set; }
-        
+
         [XmlElementAttribute("quantity")]
         public SpawnModifiersQuantity Quantity
         {
@@ -907,8 +1003,8 @@ namespace Hybrasyl.XSD
                 _quantity = value;
             }
         }
-        
-        [XmlElementAttribute("zone", ElementName="zone")]
+
+        [XmlElementAttribute("zone", ElementName = "zone")]
         public List<SpawnModifiersZone> Zone
         {
             get
@@ -925,84 +1021,99 @@ namespace Hybrasyl.XSD
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("SpawnModifiersQuantity")]
     public partial class SpawnModifiersQuantity
     {
-        
-        [XmlAttributeAttribute(DataType="nonNegativeInteger", AttributeName="min")]
+        [XmlAttributeAttribute(DataType = "nonNegativeInteger", AttributeName = "min")]
         public string Min { get; set; }
-        [XmlAttributeAttribute(DataType="nonNegativeInteger", AttributeName="max")]
+
+        [XmlAttributeAttribute(DataType = "nonNegativeInteger", AttributeName = "max")]
         public string Max { get; set; }
-        [XmlAttributeAttribute(AttributeName="percentage")]
+
+        [XmlAttributeAttribute(AttributeName = "percentage")]
         public float Percentage { get; set; }
+
         [XmlIgnore]
         public bool PercentageSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MinSpecified { get; set; }
+
         [XmlIgnore()]
         public bool MaxSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(AnonymousType=true, Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("SpawnModifiersZone")]
     public partial class SpawnModifiersZone
     {
-        
-        [XmlAttributeAttribute(AttributeName="start")]
+        [XmlAttributeAttribute(AttributeName = "start")]
         public string Start { get; set; }
-        [XmlAttributeAttribute(AttributeName="end")]
+
+        [XmlAttributeAttribute(AttributeName = "end")]
         public string End { get; set; }
+
         [XmlIgnore()]
         public bool StartSpecified { get; set; }
+
         [XmlIgnore()]
         public bool EndSpecified { get; set; }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategoryAttribute("code")]
-    [XmlTypeAttribute(Namespace="http://www.hybrasyl.com/XML/Maps")]
+    [XmlTypeAttribute(Namespace = "http://www.hybrasyl.com/XML/Maps")]
     [XmlRootAttribute("Reactor")]
     public partial class Reactor
     {
-        
         [XmlElementAttribute("description")]
         public string Description { get; set; }
+
         [XmlElementAttribute("scriptname")]
         public string Scriptname { get; set; }
-        [XmlAttributeAttribute(AttributeName="x")]
+
+        [XmlAttributeAttribute(AttributeName = "x")]
         public byte X { get; set; }
-        [XmlAttributeAttribute(AttributeName="y")]
+
+        [XmlAttributeAttribute(AttributeName = "y")]
         public byte Y { get; set; }
-        [XmlAttributeAttribute(AttributeName="blocking")]
+
+        [XmlAttributeAttribute(AttributeName = "blocking")]
         [DefaultValueAttribute(false)]
         public bool Blocking { get; set; }
+
         [XmlIgnore()]
         public bool DescriptionSpecified { get; set; }
+
         [XmlIgnore()]
         public bool ScriptnameSpecified { get; set; }
+
         [XmlIgnore()]
         public bool XSpecified { get; set; }
+
         [XmlIgnore()]
         public bool YSpecified { get; set; }
+
         [XmlIgnore()]
         public bool BlockingSpecified { get; set; }
-        
+
         public Reactor()
         {
             Blocking = false;
         }
     }
 }
+
 #pragma warning restore

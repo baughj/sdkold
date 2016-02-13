@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Hybrasyl.IO;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hybrasyl.IO;
 
 namespace Hybrasyl.Imaging.Objects
 {
@@ -68,6 +65,7 @@ namespace Hybrasyl.Imaging.Objects
 
             return entries.Count;
         }
+
         public int LoadPalettes(string pattern, Archive archive)
         {
             palettes.Clear();
@@ -83,6 +81,7 @@ namespace Hybrasyl.Imaging.Objects
             }
             return palettes.Count;
         }
+
         public int LoadPalettes(string pattern, string path)
         {
             string[] files = Directory.GetFiles(path, pattern + "*.PAL", SearchOption.TopDirectoryOnly);
@@ -101,6 +100,7 @@ namespace Hybrasyl.Imaging.Objects
 
             return palettes.Count;
         }
+
         public int LoadTables(string pattern, Archive archive)
         {
             entries.Clear();
@@ -145,7 +145,6 @@ namespace Hybrasyl.Imaging.Objects
                                 else
                                     entries.Add(new Palette(min, max, pal));
                             }
-
                         }
                         reader.Close();
                     }
@@ -153,6 +152,7 @@ namespace Hybrasyl.Imaging.Objects
             }
             return entries.Count;
         }
+
         public int LoadTables(string pattern, string path)
         {
             string[] files = Directory.GetFiles(path, pattern + "*.TBL", SearchOption.TopDirectoryOnly);

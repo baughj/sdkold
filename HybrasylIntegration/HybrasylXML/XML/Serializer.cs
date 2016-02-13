@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Hybrasyl.XSD;
 using System.Xml;
 using System.Xml.Serialization;
-using Hybrasyl.XSD;
-using System.IO;
-using System.Diagnostics;
 
 namespace Hybrasyl.XML
 {
@@ -19,6 +13,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Actions");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, Mob contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -26,6 +21,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Creatures");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, Dropset contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -33,6 +29,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Items");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, ItemType contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -40,6 +37,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Items");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, VariantGroupType contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -47,6 +45,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Items");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, Map contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -54,6 +53,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Maps");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, WorldMap contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -61,6 +61,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Maps");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, Nation contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -68,6 +69,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Nations");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static void Serialize(XmlWriter xWrite, HybrasylConfig contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -75,6 +77,7 @@ namespace Hybrasyl.XML
             ns.Add("", "http://www.hybrasyl.com/XML/Config");
             Writer.Serialize(xWrite, contents, ns);
         }
+
         public static string SerializeToString(object contents)
         {
             XmlSerializer Writer = new XmlSerializer(contents.GetType());
@@ -84,6 +87,7 @@ namespace Hybrasyl.XML
             Writer.Serialize(stringWriter, contents, ns);
             return stringWriter.ToString();
         }
+
         public static Castable Deserialize(XmlReader reader, Castable contents = null)
         {
             if (contents == null) contents = new Castable();
@@ -96,6 +100,7 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
         public static Mob Deserialize(XmlReader reader, Mob contents = null)
         {
             //reader.Settings.IgnoreWhitespace = false;
@@ -108,6 +113,7 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
         public static Dropset Deserialize(XmlReader reader, Dropset contents = null)
         {
             //reader.Settings.IgnoreWhitespace = false;
@@ -120,6 +126,7 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
         public static ItemType Deserialize(XmlReader reader, ItemType contents = null)
         {
             //reader.Settings.IgnoreWhitespace = false;
@@ -132,6 +139,7 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
         public static VariantGroupType Deserialize(XmlReader reader, VariantGroupType contents = null)
         {
             //reader.Settings.IgnoreWhitespace = false;
@@ -144,6 +152,7 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
         public static Map Deserialize(XmlReader reader, Map contents = null)
         {
             //reader.Settings.IgnoreWhitespace = false;
@@ -156,6 +165,7 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
         public static WorldMap Deserialize(XmlReader reader, WorldMap contents = null)
         {
             //reader.Settings.IgnoreWhitespace = false;
@@ -168,6 +178,7 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
+
         public static Nation Deserialize(XmlReader reader, Nation contents = null)
         {
             //reader.Settings.IgnoreWhitespace = false;
@@ -193,6 +204,5 @@ namespace Hybrasyl.XML
             }
             return contents;
         }
-
     }
 }

@@ -9,41 +9,41 @@
       Written by Justin Baugh (baughj@hybrasyl.com)
     </xs:documentation>
   </xs:annotation>
-  <xs:import schemaLocation="hybrasylTypes.xsd" namespace="http://www.hybrasyl.com/XML/HybrasylCommon"/>
+  <xs:import schemaLocation="hybrasylTypes.xsd" namespace="http://www.hybrasyl.com/XML/HybrasylCommon" />
 
   <xs:complexType name="DataStore">
     <xs:sequence>
-      <xs:element name="username" type="xs:token" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="password" type="xs:token" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="username" type="xs:token" minOccurs="0" maxOccurs="1" />
+      <xs:element name="password" type="xs:token" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
-    <xs:attribute name="type" type="xs:token" default="redis"/>
-    <xs:attribute name="host" type="xs:token" default="localhost"/>
-    <xs:attribute name="port" type="xs:unsignedShort" default="6379"/>
+    <xs:attribute name="type" type="xs:token" default="redis" />
+    <xs:attribute name="host" type="xs:token" default="localhost" />
+    <xs:attribute name="port" type="xs:unsignedShort" default="6379" />
   </xs:complexType>
 
   <xs:complexType name="NetworkInfo">
-    <xs:attribute name="bindaddress" type="hyb:IpAddress" default="127.0.0.1"/>
-    <xs:attribute name="port" type="xs:unsignedShort" use="required"/>
+    <xs:attribute name="bindaddress" type="hyb:IpAddress" default="127.0.0.1" />
+    <xs:attribute name="port" type="xs:unsignedShort" use="required" />
   </xs:complexType>
 
   <xs:complexType name="Network">
     <xs:sequence>
-      <xs:element name="lobby" type="config:NetworkInfo"/>
-      <xs:element name="login" type="config:NetworkInfo"/>
-      <xs:element name="world" type="config:NetworkInfo"/>
+      <xs:element name="lobby" type="config:NetworkInfo" />
+      <xs:element name="login" type="config:NetworkInfo" />
+      <xs:element name="world" type="config:NetworkInfo" />
     </xs:sequence>
   </xs:complexType>
 
   <!-- Item colors -->
   <xs:simpleType name="LogLevel">
     <xs:restriction base="xs:token">
-      <xs:enumeration value="all"/>
-      <xs:enumeration value="debug"/>
-      <xs:enumeration value="info"/>
-      <xs:enumeration value="warn"/>
-      <xs:enumeration value="error"/>
-      <xs:enumeration value="fatal"/>
-      <xs:enumeration value="off"/>
+      <xs:enumeration value="all" />
+      <xs:enumeration value="debug" />
+      <xs:enumeration value="info" />
+      <xs:enumeration value="warn" />
+      <xs:enumeration value="error" />
+      <xs:enumeration value="fatal" />
+      <xs:enumeration value="off" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -59,42 +59,41 @@
 
   <xs:complexType name="GlobalBoards">
     <xs:sequence>
-      <xs:element name="board" type="config:GlobalBoard" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="board" type="config:GlobalBoard" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="GlobalBoard">
     <xs:sequence>
-      <xs:element name="accesslist" type="config:GlobalBoardAccessList" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="accesslist" type="config:GlobalBoardAccessList" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
-    <xs:attribute name="name" type="xs:token" use="required"/>
-    <xs:attribute name="displayname" type="hyb:String8" use="required"/>
+    <xs:attribute name="name" type="xs:token" use="required" />
+    <xs:attribute name="displayname" type="hyb:String8" use="required" />
   </xs:complexType>
 
   <xs:complexType name="GlobalBoardAccessList">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="read" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="write" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="moderate" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="read" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="write" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="moderate" type="hyb:CharacterName" minOccurs="0" maxOccurs="unbounded" />
     </xs:choice>
   </xs:complexType>
 
   <xs:complexType name="LogConfig">
-    <xs:attribute name="type" type="xs:string" default="file"/>
-    <xs:attribute name="target" type="xs:string" default="hybrasyl.log"/>
-    <xs:attribute name="level" type="config:LogLevel" default="info"/>
+    <xs:attribute name="type" type="xs:string" default="file" />
+    <xs:attribute name="target" type="xs:string" default="hybrasyl.log" />
+    <xs:attribute name="level" type="config:LogLevel" default="info" />
   </xs:complexType>
-  
+
   <xs:complexType name="HybrasylConfig">
     <xs:sequence>
-      <xs:element name="logging" type="config:LogConfig" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="datastore" type="config:DataStore" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="network" type="config:Network" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="access" type="config:Access" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="boards" type="config:GlobalBoards" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="logging" type="config:LogConfig" minOccurs="0" maxOccurs="1" />
+      <xs:element name="datastore" type="config:DataStore" minOccurs="0" maxOccurs="1" />
+      <xs:element name="network" type="config:Network" minOccurs="0" maxOccurs="1" />
+      <xs:element name="access" type="config:Access" minOccurs="0" maxOccurs="1" />
+      <xs:element name="boards" type="config:GlobalBoards" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="hybrasylconfig" type="config:HybrasylConfig"/>
-
+  <xs:element name="hybrasylconfig" type="config:HybrasylConfig" />
 </xs:schema>

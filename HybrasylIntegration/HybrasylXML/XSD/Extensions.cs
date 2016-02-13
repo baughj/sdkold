@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Hybrasyl.XSD
 {
@@ -43,17 +38,18 @@ namespace Hybrasyl.XSD
             }
         }
     }
+
     public partial class VariantType
     {
         public void ResolveVariant(ItemType itemType)
         {
             //Logger.DebugFormat("Logging some variant stuff.");
-           // if (Properties != null)
+            // if (Properties != null)
             //    Console.WriteLine("hi");
             //foreach (var variantObject in Properties.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
             //{
             //    Console.WriteLine("variantobject contains {0}", variantObject);
-           // }
+            // }
         }
     }
 
@@ -65,7 +61,6 @@ namespace Hybrasyl.XSD
             {
                 unchecked
                 {
-                    
                     return 31 * (Name.GetHashCode() + 1);
                 }
             }
@@ -74,4 +69,3 @@ namespace Hybrasyl.XSD
         public byte CastableLevel { get; set; }
     }
 }
-

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace Hybrasyl.IO
 {
@@ -12,34 +7,39 @@ namespace Hybrasyl.IO
         private int expectedFiles;
         private ArchiveFile[] files;
         private string filename;
+
         public ArchiveFile this[int index]
         {
             get { return files[index]; }
             set { files[index] = value; }
         }
+
         public string FileName
         {
             get { return filename; }
             set { filename = value; }
         }
+
         public ArchiveFile[] Files
         {
             get { return files; }
         }
+
         public int ExpectedFiles
         {
             get { return expectedFiles; }
         }
+
         public bool Contains(string name)
         {
             foreach (ArchiveFile file in files)
             {
                 if (file.Name == name)
                     return true;
-
             }
             return false;
         }
+
         public bool Contains(string name, bool ignoreCase)
         {
             foreach (ArchiveFile file in files)
@@ -54,10 +54,10 @@ namespace Hybrasyl.IO
                     if (file.Name == name)
                         return true;
                 }
-
             }
             return false;
         }
+
         public int IndexOf(string name)
         {
             for (int i = 0; i < files.Length; i++)
@@ -67,6 +67,7 @@ namespace Hybrasyl.IO
             }
             return -1;
         }
+
         public int IndexOf(string name, bool ignoreCase)
         {
             for (int i = 0; i < files.Length; i++)
@@ -84,14 +85,13 @@ namespace Hybrasyl.IO
             }
             return -1;
         }
+
         public byte[] ExtractFile(string name)
         {
             if (!Contains(name)) return null;
 
-            #region Create File Stream and Reader
             FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
             BinaryReader reader = new BinaryReader(stream);
-            #endregion
 
             int index = IndexOf(name);
             reader.BaseStream.Seek(files[index].StartAddress, SeekOrigin.Begin);
@@ -100,6 +100,7 @@ namespace Hybrasyl.IO
 
             return fileData;
         }
+
         public byte[] ExtractFile(string name, bool ignoreCase)
         {
             if (!Contains(name, ignoreCase)) return null;
@@ -114,6 +115,7 @@ namespace Hybrasyl.IO
 
             return fileData;
         }
+
         public byte[] ExtractFile(ArchiveFile entry)
         {
             if (!Contains(entry.Name)) return null;

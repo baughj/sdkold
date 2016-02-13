@@ -1,10 +1,5 @@
 ﻿using Hybrasyl.Imaging.Objects;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hybrasyl.Imaging
 {
@@ -26,46 +21,57 @@ namespace Hybrasyl.Imaging
             get { return frames[index]; }
             set { frames[index] = value; }
         }
+
         public byte[] ExtendedHeader
         {
             get { return extendedHeader; }
         }
+
         public bool IsFFFormat
         {
             get { return isFFFormat; }
         }
+
         public bool IsNewFormat
         {
             get { return isNewFormat; }
         }
+
         public uint FFUnknown
         {
             get { return ffUnknown; }
         }
+
         public ushort Unknown
         {
             get { return unknown; }
         }
+
         public uint ExpectedDataSize
         {
             get { return expectedDataSize; }
         }
+
         public MPFFrame[] Frames
         {
             get { return frames; }
         }
+
         public int Height
         {
             get { return height; }
         }
+
         public int Width
         {
             get { return width; }
         }
+
         public int ExpectedFrames
         {
             get { return expectedFrames; }
         }
+
         private static MPF LoadMPF(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);

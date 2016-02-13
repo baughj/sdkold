@@ -1,10 +1,6 @@
 ﻿using Hybrasyl.IO;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hybrasyl.Imaging
 {
@@ -19,42 +15,50 @@ namespace Hybrasyl.Imaging
         {
             get { return headerData; }
         }
+
         public byte[] RawData
         {
             get { return rawData; }
         }
+
         public int Height
         {
             get { return height; }
         }
+
         public int Width
         {
             get { return width; }
         }
+
         public static HPF FromFile(string file)
         {
             FileStream stream = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read);
 
             return LoadHPF(stream);
         }
+
         public static HPF FromRawData(byte[] data)
         {
             MemoryStream stream = new MemoryStream(data);
 
             return LoadHPF(stream);
         }
+
         public static HPF FromArchive(string file, Archive archive)
         {
             if (!archive.Contains(file)) return null;
 
             return FromRawData(archive.ExtractFile(file));
         }
+
         public static HPF FromArchive(string file, bool ignoreCase, Archive archive)
         {
             if (!archive.Contains(file, ignoreCase)) return null;
 
             return FromRawData(archive.ExtractFile(file, ignoreCase));
         }
+
         private static HPF LoadHPF(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);

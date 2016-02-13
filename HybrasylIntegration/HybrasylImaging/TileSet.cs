@@ -1,10 +1,6 @@
 ﻿using Hybrasyl.IO;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hybrasyl.Imaging
 {
@@ -18,28 +14,34 @@ namespace Hybrasyl.Imaging
         private int tileCount;
 
         private List<byte[]> tiles = new List<byte[]>();
+
         public byte[] this[int index]
         {
             get { return tiles[index]; }
             set { tiles[index] = value; }
         }
+
         public string FileName
         {
             get { return filename; }
         }
+
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
+
         public byte[][] Tiles
         {
             get { return tiles.ToArray(); }
         }
+
         public int TileCount
         {
             get { return tileCount; }
         }
+
         public static Tileset FromFile(string file)
         {
             FileStream stream = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -48,6 +50,7 @@ namespace Hybrasyl.Imaging
             tileset.filename = file;
             return tileset;
         }
+
         public static Tileset FromRawData(byte[] data)
         {
             MemoryStream stream = new MemoryStream(data);
@@ -55,6 +58,7 @@ namespace Hybrasyl.Imaging
             tileset.name = "Unknown TileSet";
             return tileset;
         }
+
         public static Tileset FromArchive(string file, Archive archive)
         {
             if (!archive.Contains(file)) return null;
@@ -65,6 +69,7 @@ namespace Hybrasyl.Imaging
 
             return tileset;
         }
+
         public static Tileset FromArchive(string file, bool ignoreCase, Archive archive)
         {
             if (!archive.Contains(file, ignoreCase)) return null;
@@ -75,6 +80,7 @@ namespace Hybrasyl.Imaging
 
             return tileset;
         }
+
         private static Tileset LoadTiles(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);
