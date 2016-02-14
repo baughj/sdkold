@@ -709,6 +709,8 @@ namespace Hybrasyl.XSD
 
         /// <remarks/>
         claw,
+
+        none
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
