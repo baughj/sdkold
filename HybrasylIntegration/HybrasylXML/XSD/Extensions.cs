@@ -16,8 +16,12 @@
  * (C) 2016 Project Hybrasyl (info@hybrasyl.com)
  *
  */
- 
+
+using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Hybrasyl.XSD
 {
@@ -60,15 +64,55 @@ namespace Hybrasyl.XSD
 
     public partial class VariantType
     {
-        public void ResolveVariant(ItemType itemType)
+        public ItemType ResolveVariant(ItemType itemType)
         {
-            //Logger.DebugFormat("Logging some variant stuff.");
-            // if (Properties != null)
-            //    Console.WriteLine("hi");
-            //foreach (var variantObject in Properties.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
-            //{
-            //    Console.WriteLine("variantobject contains {0}", variantObject);
-            // }
+            var variantItem = itemType.Clone();
+            _resolve(variantItem, this);
+            return variantItem;
+
+        }
+
+        private void _resolve<T1, T2>(T1 item, T2 variant)
+        {
+            foreach (var property in typeof (T2).GetProperties(BindingFlags.Public))
+            {
+                foreach (var attr in property.GetCustomAttributes(false))
+                {
+                    var itemProperty = typeof(T1).GetProperty(property.Name);
+                    if (attr is VariantOverride)
+                        // Simple override
+                        itemProperty.SetValue(item, property.GetValue(variant));
+                    if (attr is VariantAttribute)
+                    {
+                        var variantString = (string) property.GetValue(variant);
+                        if (variantString.StartsWith("replace"))
+                        {
+                            var variants = variantString.Split(':');
+                            itemProperty.SetValue(item, variants[1]);
+                        }
+                        else if (variantString.EndsWith("%"))
+                        {
+                            var pct = Convert.ToInt32(variantString.TrimEnd('%'));
+                            var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
+                            itemProperty.SetValue(item, (originalValue * pct / 100));
+                        }
+                        else
+                        {
+                            // Just add it
+                            var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
+                            var variantValue = Convert.ToInt32(property.GetValue(variant));
+                            itemProperty.SetValue(item, originalValue + variantValue);
+                        }
+                    }
+                    if (attr is VariantTraverse)
+                    {
+                        // Navigate sub-properties
+                        _resolve(itemProperty, property);
+
+                    }
+
+                }
+            }
         }
     }
 
