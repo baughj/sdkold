@@ -22,6 +22,8 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using log4net;
+using log4net.Repository.Hierarchy;
 
 namespace Hybrasyl.XSD
 {
@@ -69,52 +71,66 @@ namespace Hybrasyl.XSD
             var variantItem = itemType.Clone();
             _resolve(variantItem, this);
             return variantItem;
-
         }
 
         private void _resolve<T1, T2>(T1 item, T2 variant)
         {
-            foreach (var property in typeof (T2).GetProperties(BindingFlags.Public))
+            var logger = log4net.LogManager.GetLogger("Hybrasyl.World");
+            foreach (
+                var property in
+                    typeof (T2).GetProperties(BindingFlags.Public | BindingFlags.Instance))
             {
-                foreach (var attr in property.GetCustomAttributes(false))
+                var itemProperty = typeof (T1).GetProperty(property.Name);
+                logger.Info($"{itemProperty.Name} has value {itemProperty.Attributes}");
+                var hurr = itemProperty.GetCustomAttributes(typeof (VariantOverride), false);
+                logger.Info($"{ hurr }");
+                if (itemProperty.GetCustomAttributes(typeof (VariantOverride), false).Length > 0)
                 {
-                    var itemProperty = typeof(T1).GetProperty(property.Name);
-                    if (attr is VariantOverride)
-                        // Simple override
-                        itemProperty.SetValue(item, property.GetValue(variant));
-                    if (attr is VariantAttribute)
+                    // Simple override
+                    logger.Info($"Setting {itemProperty.Name} to {property.GetValue(variant)}");
+                    itemProperty.SetValue(item, property.GetValue(variant));
+                }
+                else if (itemProperty.GetCustomAttributes(typeof (VariantAttribute), false).Length > 0)
+                {
+                    logger.Info($"Variant Attribute: {itemProperty.Name}, Variant is {property.GetValue(variant)}");
+                    var variantString = (string) property.GetValue(variant);
+                    if (variantString.StartsWith("replace"))
                     {
-                        var variantString = (string) property.GetValue(variant);
-                        if (variantString.StartsWith("replace"))
-                        {
-                            var variants = variantString.Split(':');
-                            itemProperty.SetValue(item, variants[1]);
-                        }
-                        else if (variantString.EndsWith("%"))
-                        {
-                            var pct = Convert.ToInt32(variantString.TrimEnd('%'));
-                            var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
-                            itemProperty.SetValue(item, (originalValue * pct / 100));
-                        }
-                        else
-                        {
-                            // Just add it
-                            var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
-                            var variantValue = Convert.ToInt32(property.GetValue(variant));
-                            itemProperty.SetValue(item, originalValue + variantValue);
-                        }
+                        var variants = variantString.Split(':');
+                        itemProperty.SetValue(item, variants[1]);
+                        Console.WriteLine("{0}: {1}", itemProperty.Name, variants[1]);
                     }
-                    if (attr is VariantTraverse)
+                    else if (variantString.EndsWith("%"))
                     {
-                        // Navigate sub-properties
-                        _resolve(itemProperty, property);
-
+                        var pct = Convert.ToInt32(variantString.TrimEnd('%'));
+                        var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
+                        itemProperty.SetValue(item, (originalValue*pct/100));
+                        Console.WriteLine("{0}: {1}", itemProperty.Name, originalValue);
                     }
+                    else
+                    {
+                        // Just add it
+                        var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
+                        var variantValue = Convert.ToInt32(property.GetValue(variant));
+                        Console.WriteLine("{0}: {1}, {2}", itemProperty.Name, originalValue, variantValue);
+                        itemProperty.SetValue(item, originalValue + variantValue);
+                    }
+                }
+                else if (itemProperty.GetCustomAttributes(typeof (VariantTraverse), false).Length > 0)
+                {
+                    // Navigate sub-properties
+                    logger.Info($"Traverse: ${itemProperty.Name} / {property.Name}");
+                    _resolve(itemProperty, property);
 
+                }
+                else
+                {
+                    logger.Info("kek");
                 }
             }
         }
     }
+
 
     public partial class Castable
     {

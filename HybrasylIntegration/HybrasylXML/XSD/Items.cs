@@ -45,7 +45,6 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute("item", Namespace = "http://www.hybrasyl.com/XML/Items", IsNullable = false)]
     public partial class ItemType
     {
-        [VariantTraverse]
         private ItemProperties _properties;
 
         [XmlElementAttribute("name")]
@@ -64,6 +63,7 @@ namespace Hybrasyl.XSD
         public bool PropertiesSpecified { get; set; }
 
         [XmlElementAttribute("properties")]
+        [VariantTraverse]
         public ItemProperties Properties
         {
             get
@@ -107,32 +107,26 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute("ItemProperties")]
     public partial class ItemProperties
     {
-        [VariantTraverse]
         private ItemPropertiesAppearance _appearance;
 
         private List<CastModifiersLines> _castmodifiers;
 
-        [VariantTraverse]
         private ItemPropertiesStackable _stackable;
 
-        [VariantTraverse]
         private ItemPropertiesPhysical _physical;
 
         private ItemPropertiesEquipment _equipment;
 
-        [VariantTraverse]
         private ItemPropertiesStateffects _stateffects;
 
         private ItemPropertiesVariants _variants;
 
         private ItemPropertiesVendor _vendor;
 
-        [VariantTraverse]
         private ItemPropertiesDamage _damage;
 
         private ItemPropertiesUse _use;
 
-        [VariantTraverse]
         private ItemPropertiesRestrictions _restrictions;
 
         [XmlElementAttribute("flags")]
@@ -176,6 +170,7 @@ namespace Hybrasyl.XSD
         public bool RestrictionsSpecified { get; set; }
 
         [XmlElementAttribute("appearance")]
+        [VariantTraverse]
         public ItemPropertiesAppearance Appearance
         {
             get
@@ -210,6 +205,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("stackable")]
+        [VariantTraverse]
         public ItemPropertiesStackable Stackable
         {
             get
@@ -227,6 +223,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("physical")]
+        [VariantTraverse]
         public ItemPropertiesPhysical Physical
         {
             get
@@ -244,6 +241,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("equipment")]
+        [VariantTraverse]
         public ItemPropertiesEquipment Equipment
         {
             get
@@ -261,6 +259,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("stateffects")]
+        [VariantTraverse]
         public ItemPropertiesStateffects Stateffects
         {
             get
@@ -278,6 +277,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("variants")]
+        [VariantTraverse]
         public ItemPropertiesVariants Variants
         {
             get
@@ -295,6 +295,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("vendor")]
+        [VariantTraverse]
         public ItemPropertiesVendor Vendor
         {
             get
