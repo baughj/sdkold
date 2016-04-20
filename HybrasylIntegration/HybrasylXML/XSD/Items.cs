@@ -17,6 +17,8 @@
  *
  */
 
+using Newtonsoft.Json;
+
 #pragma warning disable
 
 namespace Hybrasyl.XSD
@@ -29,6 +31,11 @@ namespace Hybrasyl.XSD
     using System.Xml;
     using System.Xml.Schema;
     using System.Xml.Serialization;
+
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    public class VariantAttribute : Attribute { }
+    public class VariantOverride : Attribute { }
+    public class VariantTraverse : Attribute { }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [Serializable]
@@ -56,6 +63,7 @@ namespace Hybrasyl.XSD
         public bool PropertiesSpecified { get; set; }
 
         [XmlElementAttribute("properties")]
+        [VariantTraverse]
         public ItemProperties Properties
         {
             get
@@ -71,6 +79,24 @@ namespace Hybrasyl.XSD
                 _properties = value;
             }
         }
+
+        public ItemType Clone()
+        {
+            // Don't serialize a null object, simply return the default for that object
+            if (Object.ReferenceEquals(this, null))
+            {
+                return default(ItemType);
+            }
+
+            // initialize inner objects individually
+            // for example in default constructor some list property initialized with some values,
+            // but in 'source' these items are cleaned -
+            // without ObjectCreationHandling.Replace default constructor values will be added to result
+            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
+
+            return JsonConvert.DeserializeObject<ItemType>(JsonConvert.SerializeObject(this), deserializeSettings);
+        }
+
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
@@ -104,6 +130,7 @@ namespace Hybrasyl.XSD
         private ItemPropertiesRestrictions _restrictions;
 
         [XmlElementAttribute("flags")]
+        [VariantOverride]
         public ItemFlags Flags { get; set; }
 
         [XmlIgnore]
@@ -143,6 +170,7 @@ namespace Hybrasyl.XSD
         public bool RestrictionsSpecified { get; set; }
 
         [XmlElementAttribute("appearance")]
+        [VariantTraverse]
         public ItemPropertiesAppearance Appearance
         {
             get
@@ -177,6 +205,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("stackable")]
+        [VariantTraverse]
         public ItemPropertiesStackable Stackable
         {
             get
@@ -194,6 +223,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("physical")]
+        [VariantTraverse]
         public ItemPropertiesPhysical Physical
         {
             get
@@ -211,6 +241,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("equipment")]
+        [VariantTraverse]
         public ItemPropertiesEquipment Equipment
         {
             get
@@ -228,6 +259,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("stateffects")]
+        [VariantTraverse]
         public ItemPropertiesStateffects Stateffects
         {
             get
@@ -245,6 +277,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("variants")]
+        [VariantTraverse]
         public ItemPropertiesVariants Variants
         {
             get
@@ -262,6 +295,7 @@ namespace Hybrasyl.XSD
         }
 
         [XmlElementAttribute("vendor")]
+        [VariantTraverse]
         public ItemPropertiesVendor Vendor
         {
             get
@@ -339,15 +373,18 @@ namespace Hybrasyl.XSD
     public partial class ItemPropertiesAppearance
     {
         [XmlAttributeAttribute(AttributeName = "sprite")]
+        [VariantOverride]
         public ushort Sprite { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "equipsprite")]
+        [VariantOverride]
         public ushort Equipsprite { get; set; }
 
         [XmlIgnore]
         public bool EquipspriteSpecified { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "displaysprite")]
+        [VariantOverride]
         public ushort Displaysprite { get; set; }
 
         [XmlIgnore]
@@ -355,10 +392,12 @@ namespace Hybrasyl.XSD
 
         [XmlAttributeAttribute(AttributeName = "bodystyle")]
         [DefaultValueAttribute(ItemBodystyle.transparent)]
+        [VariantOverride]
         public ItemBodystyle Bodystyle { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "color")]
         [DefaultValueAttribute(ItemColor.none)]
+        [VariantOverride]
         public ItemColor Color { get; set; }
 
         [XmlIgnore()]
@@ -535,26 +574,32 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "value")]
         [DefaultValueAttribute(typeof(uint), "0")]
+        [VariantAttribute]
         public uint Value { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "weight")]
         [DefaultValueAttribute(1)]
+        [VariantAttribute]
         public int Weight { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "durability")]
         [DefaultValueAttribute(typeof(uint), "1")]
+        [VariantAttribute]
         public uint Durability { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "perishable")]
         [DefaultValueAttribute(false)]
+        [VariantOverride]
         public bool Perishable { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "vendorable")]
         [DefaultValueAttribute(true)]
+        [VariantOverride]
         public bool Vendorable { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "bound")]
         [DefaultValueAttribute(false)]
+        [VariantOverride]
         public bool Bound { get; set; }
 
         [XmlIgnore()]
@@ -721,10 +766,13 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute("ItemPropertiesStateffects")]
     public partial class ItemPropertiesStateffects
     {
+        [VariantTraverse]
         private ItemPropertiesStateffectsBase _base;
 
+        [VariantTraverse]
         private ItemPropertiesStateffectsCombat _combat;
 
+        [VariantTraverse]
         private ItemPropertiesStateffectsElement _element;
 
         [XmlIgnore()]
@@ -798,30 +846,37 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "str")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Str { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "int")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Int { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "wis")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Wis { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "con")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Con { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "dex")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Dex { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "hp")]
         [DefaultValueAttribute(0)]
+        [VariantAttribute]
         public int Hp { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "mp")]
         [DefaultValueAttribute(0)]
+        [VariantAttribute]
         public int Mp { get; set; }
 
         [XmlIgnore()]
@@ -867,22 +922,27 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "hit")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Hit { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "dmg")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Dmg { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "ac")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Ac { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "regen")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Regen { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "mr")]
         [DefaultValueAttribute(typeof(sbyte), "0")]
+        [VariantAttribute]
         public sbyte Mr { get; set; }
 
         [XmlIgnore()]
@@ -920,10 +980,12 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "offense")]
         [DefaultValueAttribute(Element.none)]
+        [VariantOverride]
         public Element Offense { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "defense")]
         [DefaultValueAttribute(Element.none)]
+        [VariantOverride]
         public Element Defense { get; set; }
 
         [XmlIgnore()]
@@ -1078,8 +1140,10 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute("ItemPropertiesDamage")]
     public partial class ItemPropertiesDamage
     {
+        [VariantTraverse]
         private ItemPropertiesDamageSmall _small;
 
+        [VariantTraverse]
         private ItemPropertiesDamageLarge _large;
 
         [XmlIgnore()]
@@ -1133,10 +1197,12 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(ushort), "0")]
+        [VariantAttribute]
         public ushort Min { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(ushort), "0")]
+        [VariantAttribute]
         public ushort Max { get; set; }
 
         [XmlIgnore()]
@@ -1162,10 +1228,12 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(ushort), "0")]
+        [VariantAttribute]
         public ushort Min { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(ushort), "0")]
+        [VariantAttribute]
         public ushort Max { get; set; }
 
         [XmlIgnore()]
@@ -1418,11 +1486,14 @@ namespace Hybrasyl.XSD
     [XmlRootAttribute("ItemPropertiesRestrictions")]
     public partial class ItemPropertiesRestrictions
     {
+        [VariantOverride]
         private ItemPropertiesRestrictionsLevel _level;
 
+        [VariantOverride]
         private ItemPropertiesRestrictionsAB _ab;
 
         [XmlElementAttribute("class")]
+        [VariantOverride]
         public Class Class { get; set; }
 
         [XmlIgnore]
@@ -1430,6 +1501,7 @@ namespace Hybrasyl.XSD
 
         [DefaultValueAttribute(Gender.neutral)]
         [XmlElementAttribute("gender")]
+        [VariantOverride]
         public Gender Gender { get; set; }
 
         [XmlIgnore()]
@@ -1491,10 +1563,12 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(byte), "0")]
+        [VariantAttribute]
         public byte Min { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(byte), "255")]
+        [VariantAttribute]
         public byte Max { get; set; }
 
         [XmlIgnore()]
@@ -1520,10 +1594,12 @@ namespace Hybrasyl.XSD
     {
         [XmlAttributeAttribute(AttributeName = "min")]
         [DefaultValueAttribute(typeof(byte), "0")]
+        [VariantAttribute]
         public byte Min { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "max")]
         [DefaultValueAttribute(typeof(byte), "255")]
+        [VariantAttribute]
         public byte Max { get; set; }
 
         [XmlIgnore()]
@@ -1693,6 +1769,7 @@ namespace Hybrasyl.XSD
         public bool FlagsSpecified { get; set; }
 
         [XmlElementAttribute("script")]
+        [VariantAttribute]
         public string Script { get; set; }
 
         [XmlIgnore()]
