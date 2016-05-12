@@ -16,29 +16,32 @@
  * (C) 2016 Project Hybrasyl (info@hybrasyl.com)
  *
  */
- 
+
+using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Xml.Serialization;
 
 namespace Hybrasyl.XSD
 {
     public partial class ItemType
     {
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public bool IsVariant { get; set; }
 
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public ItemType ParentItem { get; set; }
 
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public bool Stackable
         {
             get { return Properties.Stackable != null; }
         }
 
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public VariantType CurrentVariant { get; set; }
 
-        [System.Xml.Serialization.XmlIgnore]
+        [XmlIgnore]
         public Dictionary<int, ItemType> Variants { get; set; }
 
         public int Id
@@ -49,10 +52,10 @@ namespace Hybrasyl.XSD
                 {
                     if (Properties.Appearance.DisplayspriteSpecified && Properties.Appearance.Displaysprite > 0)
                     {
-                        return 31 * Name.GetHashCode() * (Properties.Restrictions.Gender.GetHashCode() + 1) *
-                        Properties.Appearance.Displaysprite.GetHashCode();
+                        return 31*Name.GetHashCode()*(Properties.Restrictions.Gender.GetHashCode() + 1)*
+                               Properties.Appearance.Displaysprite.GetHashCode();
                     }
-                    return 31 * Name.GetHashCode() * (Properties.Restrictions.Gender.GetHashCode() + 1);
+                    return 31*Name.GetHashCode()*(Properties.Restrictions.Gender.GetHashCode() + 1);
                 }
             }
         }
@@ -60,17 +63,62 @@ namespace Hybrasyl.XSD
 
     public partial class VariantType
     {
-        public void ResolveVariant(ItemType itemType)
+        public ItemType ResolveVariant(ItemType itemType)
         {
-            //Logger.DebugFormat("Logging some variant stuff.");
-            // if (Properties != null)
-            //    Console.WriteLine("hi");
-            //foreach (var variantObject in Properties.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
-            //{
-            //    Console.WriteLine("variantobject contains {0}", variantObject);
-            // }
+            var variantItem = (ItemType)itemType.Clone();
+            _resolve(variantItem, this);
+            return variantItem;
+        }
+
+        private void _resolve<T1, T2>(T1 item, T2 variant)
+        {
+            foreach (
+                var property in
+                    typeof (T2).GetProperties(BindingFlags.Public | BindingFlags.Instance))
+            {
+                var itemProperty = typeof (T1).GetProperty(property.Name);
+
+                var hurr = itemProperty.GetCustomAttributes(typeof (VariantOverride), false);
+
+                if (itemProperty.GetCustomAttributes(typeof (VariantOverride), false).Length > 0)
+                {
+                    // Simple override
+                    itemProperty.SetValue(item, property.GetValue(variant));
+                }
+                else if (itemProperty.GetCustomAttributes(typeof (VariantAttribute), false).Length > 0)
+                {
+                    var variantString = (string) property.GetValue(variant);
+                    if (variantString.StartsWith("replace"))
+                    {
+                        var variants = variantString.Split(':');
+                        itemProperty.SetValue(item, variants[1]);
+                        Console.WriteLine("{0}: {1}", itemProperty.Name, variants[1]);
+                    }
+                    else if (variantString.EndsWith("%"))
+                    {
+                        var pct = Convert.ToInt32(variantString.TrimEnd('%'));
+                        var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
+                        itemProperty.SetValue(item, originalValue*pct/100);
+                        Console.WriteLine("{0}: {1}", itemProperty.Name, originalValue);
+                    }
+                    else
+                    {
+                        // Just add it
+                        var originalValue = Convert.ToInt32(itemProperty.GetValue(item));
+                        var variantValue = Convert.ToInt32(property.GetValue(variant));
+                        Console.WriteLine("{0}: {1}, {2}", itemProperty.Name, originalValue, variantValue);
+                        itemProperty.SetValue(item, originalValue + variantValue);
+                    }
+                }
+                else if (itemProperty.GetCustomAttributes(typeof (VariantTraverse), false).Length > 0)
+                {
+                    // Navigate sub-properties
+                    _resolve(itemProperty, property);
+                }
+            }
         }
     }
+
 
     public partial class Castable
     {
@@ -80,7 +128,7 @@ namespace Hybrasyl.XSD
             {
                 unchecked
                 {
-                    return 31 * (Name.GetHashCode() + 1);
+                    return 31*(Name.GetHashCode() + 1);
                 }
             }
         }
