@@ -137,6 +137,9 @@ namespace Hybrasyl.XSD
         [XmlElementAttribute("serverstart")]
         public ServerStart ServerStart { get; set; }
 
+        [XmlIgnore]
+        public DateTime? StartDate => ServerStart.ServerStartDate;
+
         [XmlArray("ages")]
         [XmlArrayItemAttribute("age", IsNullable = false, ElementName = "age")]
         public List<HybrasylAge> Ages { get; set; }
@@ -145,7 +148,6 @@ namespace Hybrasyl.XSD
         {
             ServerStart = new ServerStart();
             Ages = new List<HybrasylAge>();
-
         }
 
     }
@@ -158,25 +160,43 @@ namespace Hybrasyl.XSD
     [System.Xml.Serialization.XmlRootAttribute("serverstart")]
     public partial class ServerStart
     {
-        [XmlTextAttribute]
-        private string _serverStart;
+        [XmlText]      
+        public string Value;
 
         [XmlIgnore]
-        public DateTime ServerStartDate => XmlConvert.ToDateTime(_serverStart,XmlDateTimeSerializationMode.Local);
+        public DateTime? ServerStartDate
+        {
+            get
+            {
+                if (Value != string.Empty)
+                {
+                    try
+                    {
+                        return XmlConvert.ToDateTime(Value, XmlDateTimeSerializationMode.Local);
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
+                }
+                return null;
+            }
+        }
 
-        [XmlAttributeAttribute("defaultage")]
+        [XmlAttribute("defaultage")]
+        [DefaultValueAttribute(typeof(string), "Hybrasyl")]
         public string DefaultAge;
 
-        [XmlAttributeAttribute("defaultyear")]
-        public string DefaultYear;
+        [XmlAttribute("defaultyear")]
+        [DefaultValueAttribute(typeof(int), "1")]
+        public int DefaultYear;
 
         public ServerStart()
         {
             DefaultAge = "Hybrasyl";
-            DefaultYear = "1";
-            _serverStart = DateTime.Now.ToString("u");
-
+            DefaultYear = 1;          
         }
+
     }
 
 
@@ -198,7 +218,7 @@ namespace Hybrasyl.XSD
         public DateTime? EndDate { get; set; }
 
         [XmlAttributeAttribute(AttributeName = "enddate")]
-        public string ValidUntilString
+        public string EndDateString
         {
             get { return EndDate?.ToString("u"); }
             set
@@ -210,6 +230,13 @@ namespace Hybrasyl.XSD
         [XmlAttributeAttribute(AttributeName = "startyear")]
         [DefaultValueAttribute(typeof(int), "1")]
         public int StartYear { get; set; }
+
+        public bool DateInAge(DateTime datetime)
+        {
+            if (EndDate == null) return datetime.Ticks > StartDate.Ticks;
+            var endDate = (DateTime) EndDate;
+            return datetime.Ticks >= StartDate.Ticks && datetime.Ticks <= endDate.Ticks;
+        } 
     }
 
 
